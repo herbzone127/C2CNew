@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/rms" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/mm/services/entity/devices/Weather_v0" xmlns:v0p1="http://transport.nsw.gov.au/mm/services/entity/devices/Weather_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Weather_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/mm/services/entity/devices/Weather_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+			Weather Service - Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/mm/services/entity/devices/Weather_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="MsgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xs:element name="getESSObservation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:deviceInformationRequestMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getESSObservationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:eSSObservationReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="getESSObservation">
+    <part name="message" element="v0p1:getESSObservation" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="getESSObservationResponse">
+    <part name="message" element="v0p1:getESSObservationResponse" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <portType name="WeatherPortType_v0p1">
+    <operation name="getESSObservation">
+      <input message="tns:getESSObservation" />
+      <output message="tns:getESSObservationResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="WeatherSoapHttpBinding_v0p1" type="tns:WeatherPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getESSObservation">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getESSObservation" part="rms_header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getESSObservationResponse" part="rms_header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Weather_v0p1">
+    <port name="WeatherSoapHttpPort" binding="tns:WeatherSoapHttpBinding_v0p1">
+      <soap:address location="http://localhost:9080/CHS_MTW_Weather-mediationWeb/sca/CHS_MTW_WeatherExport" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bfdc9593-b905-4082-99c5-efec72a6c2a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="D:\Projects\AlexanderCO\c2capplicationinformation\TfNSW\MM\Weather_v0.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LRMS-Adopted-02-00-00.xsd" MetadataType="Schema" ID="3c553d97-a740-4c4a-9610-412f98bb6d11" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/LRMS-Adopted-02-00-00.xsd" />
+    <MetadataFile FileName="ITIS-Adopted-03-00-02.xsd" MetadataType="Schema" ID="1e0a6504-4d16-42ca-8230-0f82784be97d" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/ITIS-Adopted-03-00-02.xsd" />
+    <MetadataFile FileName="TMDD-Extensions.xsd" MetadataType="Schema" ID="45688fce-da30-48cd-9bad-68541b75c9f6" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD-Extensions.xsd" />
+    <MetadataFile FileName="MsgContext.xsd" MetadataType="Schema" ID="c69857a5-253e-4caf-8811-6bf839d9c786" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/TfNSW/MM/MsgContext.xsd" />
+    <MetadataFile FileName="TMDD.xsd" MetadataType="Schema" ID="5ebb5e77-8248-4f71-a77d-16ac8b352c89" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD.xsd" />
+    <MetadataFile FileName="LRMS-Local-02-00-00.xsd" MetadataType="Schema" ID="d3307704-ba27-4819-a2eb-8c179a30db92" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/LRMS-Local-02-00-00.xsd" />
+    <MetadataFile FileName="NTCIP-References.xsd" MetadataType="Schema" ID="904e91a3-8a4e-4e63-b550-d90c65c18a81" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/NTCIP-References.xsd" />
+    <MetadataFile FileName="C2C.xsd" MetadataType="Schema" ID="ac55c110-47d8-4965-847d-ab0953682bc2" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/C2C.xsd" />
+    <MetadataFile FileName="Weather_v0.wsdl" MetadataType="Wsdl" ID="74c2a12d-8d7b-4424-ae59-e9cbd38048be" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/TfNSW/MM/Weather_v0.wsdl" />
+    <MetadataFile FileName="ITIS-Local-03-00-02.xsd" MetadataType="Schema" ID="74427806-ebd3-4be7-b875-793126c6c40d" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/ITIS-Local-03-00-02.xsd" />
+    <MetadataFile FileName="TMDD-Local-12-05-01.xsd" MetadataType="Schema" ID="ed86f188-89d4-41ea-9247-676911cbcd3c" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD-Local-12-05-01.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

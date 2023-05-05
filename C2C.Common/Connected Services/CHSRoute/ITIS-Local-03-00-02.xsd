@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.ITIS-Local-03-00-02" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.ITIS-Local-03-00-02" version="Adopted" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Exported on: 03:47:07 PM Friday, October 20, 2006 From file: ITIS_Rev03_00_02.ITS [By: Mini-Edit Rev 2.1.441] 
+   </xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="AccidentsAndIncidents">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accident involving a car" />
+      <xs:enumeration value="accident involving a over height vehicle" />
+      <xs:enumeration value="reversing over height vehicle" />
+      <xs:enumeration value="closure" />
+      <xs:enumeration value="breakdown is attended" />
+      <xs:enumeration value="disabled car" />
+      <xs:enumeration value="disabled over height vehicle" />
+      <xs:enumeration value="breakdown closure" />
+      <xs:enumeration value="head on collision" />
+      <xs:enumeration value="loss of control collision" />
+      <xs:enumeration value="head to tail collision" />
+      <xs:enumeration value="right angle collision" />
+      <xs:enumeration value="vehicle to object collision" />
+      <xs:enumeration value="vehicle out of fuel" />
+      <xs:enumeration value="off-motorway incident" />
+      <xs:enumeration value="liquid spill" />
+      <xs:enumeration value="solid spill" />
+      <xs:enumeration value="vapour spill" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AdviceInstructionsMandatory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AdviceInstructionsRecommendations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AlternateRoute">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="northbound contraflow" />
+      <xs:enumeration value="eastbound contraflow" />
+      <xs:enumeration value="southbound contraflow" />
+      <xs:enumeration value="westbound contraflow" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AssetStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Closures">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="miscellaneous closure" />
+      <xs:enumeration value="accident" />
+      <xs:enumeration value="police operations" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DelayStatusCancellation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="external network impact" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Disasters">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="other fire" />
+      <xs:enumeration value="factory fire" />
+      <xs:enumeration value="house fire" />
+      <xs:enumeration value="force majeure" />
+      <xs:enumeration value="bushfire" />
+      <xs:enumeration value="fire in tunnel" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Disturbances">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="missile throwing" />
+      <xs:enumeration value="road rage" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GenericLocations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncidentResponseEquipment">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncidentResponseStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ITIScodes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LaneRoadway">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MobileSituation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="friction" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Objects">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Obstruction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="miscellaneous hazard" />
+      <xs:enumeration value="hazardous load" />
+      <xs:enumeration value="oversized vehicle" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ParkingInformation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PavementConditions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="wet road" />
+      <xs:enumeration value="trace moisture" />
+      <xs:enumeration value="absorption" />
+      <xs:enumeration value="absorption at dewpoint" />
+      <xs:enumeration value="pavement temperature" />
+      <xs:enumeration value="surface temperature" />
+      <xs:enumeration value="surface salinity" />
+      <xs:enumeration value="surface freeze point" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Precipitation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Manual" />
+      <xs:enumeration value="one hour" />
+      <xs:enumeration value="24 hours" />
+      <xs:enumeration value="sensor" />
+      <xs:enumeration value="start time" />
+      <xs:enumeration value="end time" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Qualifiers">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResponderGroupAffected">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RestrictionClass">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RoadsideAssets">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Roadwork">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="intersection" />
+      <xs:enumeration value="new road construction" />
+      <xs:enumeration value="road opening" />
+      <xs:enumeration value="repair" />
+      <xs:enumeration value="sign signl" />
+      <xs:enumeration value="traf rpair" />
+      <xs:enumeration value="unknown" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="SHB" />
+      <xs:enumeration value="camera" />
+      <xs:enumeration value="tree lop" />
+      <xs:enumeration value="vsls" />
+      <xs:enumeration value="signals" />
+      <xs:enumeration value="tmu" />
+      <xs:enumeration value="vms" />
+      <xs:enumeration value="weather" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpecialEvents">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="category 1" />
+      <xs:enumeration value="category 2" />
+      <xs:enumeration value="category 3" />
+      <xs:enumeration value="category 4" />
+      <xs:enumeration value="category 5" />
+      <xs:enumeration value="class 1" />
+      <xs:enumeration value="class 2" />
+      <xs:enumeration value="class 3" />
+      <xs:enumeration value="class 4" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SportingEvents">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SuggestionAdvice">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SystemInformation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Temperature">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="wet-bulb" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrafficConditions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hazardous" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransitMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransitOperations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="police" />
+      <xs:enumeration value="incident" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TravelerGroupAffected">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Units">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnusualDriving">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleGroupAffected">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VisibilityAndAirQuality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="carbon monoxide level" />
+      <xs:enumeration value="carbon dioxide level" />
+      <xs:enumeration value="nitrous oxide level" />
+      <xs:enumeration value="nitrogen dioxide level" />
+      <xs:enumeration value="sulfur dioxide level" />
+      <xs:enumeration value="ozone level" />
+      <xs:enumeration value="particulate matter level" />
+      <xs:enumeration value="sun glare" />
+      <xs:enumeration value="clear" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WarningAdvice">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ice warning" />
+      <xs:enumeration value="snow warning" />
+      <xs:enumeration value="snow watch" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WeatherConditions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="adverse weather" />
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Winds">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WinterDrivingIndex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WinterDrivingRestrictions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TunnelSystemFault">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="miscellaneous" />
+          <xs:enumeration value="communication system" />
+          <xs:enumeration value="centre failure" />
+          <xs:enumeration value="light" />
+          <xs:enumeration value="power" />
+          <xs:enumeration value="system failure" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="TunnelSystemOperations">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="miscellaneous" />
+          <xs:enumeration value="air q" />
+          <xs:enumeration value="air q s2" />
+          <xs:enumeration value="air q s3" />
+          <xs:enumeration value="deluge" />
+          <xs:enumeration value="fire equipment" />
+          <xs:enumeration value="fire debris" />
+          <xs:enumeration value="fire vehicle" />
+          <xs:enumeration value="air quality" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RoadUse">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="crane" />
+          <xs:enumeration value="hoarding" />
+          <xs:enumeration value="investgate" />
+          <xs:enumeration value="wide load" />
+          <xs:enumeration value="mobile active" />
+          <xs:enumeration value="other" />
+          <xs:enumeration value="survey" />
+          <xs:enumeration value="unknown" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="Tow">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="clearway" />
+          <xs:enumeration value="crash" />
+          <xs:enumeration value="chief tow" />
+          <xs:enumeration value="breakdown" />
+          <xs:enumeration value="translane" />
+          <xs:enumeration value="special event" />
+          <xs:enumeration value="tway" />
+          <xs:enumeration value="clearway 2" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="Miscellaneous">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="miscellaneous" />
+          <xs:enumeration value="other" />
+          <xs:enumeration value="testing" />
+          <xs:enumeration value="wet weather" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RoadOccupancy">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="maintenance" />
+          <xs:enumeration value="construction" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="SignalFault">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="miscellaneous" />
+          <xs:enumeration value="black out" />
+          <xs:enumeration value="flashing yellow" />
+          <xs:enumeration value="power failure" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="AlertThresholdStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active" />
+          <xs:enumeration value="cleared" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssDirectionOfChange">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="rising" />
+          <xs:enumeration value="falling" />
+          <xs:enumeration value="insert-extensions-here" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\[.+\].*" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssAlertSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal" />
+      <xs:enumeration value="sms" />
+      <xs:enumeration value="other" />
+      <xs:enumeration value="insert-extensions-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssThresholdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EssProbability" />
+      <xs:enumeration value="EssAtmosphericPressure" />
+      <xs:enumeration value="EssAvgWindDirection" />
+      <xs:enumeration value="EssAvgWindGustSpeed" />
+      <xs:enumeration value="EssAvgWindSpeed" />
+      <xs:enumeration value="EssMaxWindGustDirection" />
+      <xs:enumeration value="EssMaxWindGustSpeed" />
+      <xs:enumeration value="EssAirTemperature" />
+      <xs:enumeration value="EssDewpointTemp" />
+      <xs:enumeration value="EssMaxTemp" />
+      <xs:enumeration value="EssMinTemp" />
+      <xs:enumeration value="EssWetBulbTemp" />
+      <xs:enumeration value="EssAdjacentSnowDepth" />
+      <xs:enumeration value="EssIceThickness" />
+      <xs:enumeration value="EssRelativeHumidity" />
+      <xs:enumeration value="EssPrecipitation24Hours" />
+      <xs:enumeration value="EssPrecipitationEndTime" />
+      <xs:enumeration value="EssPrecipitationOneHour" />
+      <xs:enumeration value="EssPrecipRate" />
+      <xs:enumeration value="EssPrecipitationStartTime" />
+      <xs:enumeration value="EssRoadwaySnowDepth" />
+      <xs:enumeration value="EssRoadwaySnowPackDepth" />
+      <xs:enumeration value="EssSnowfallAccumRate" />
+      <xs:enumeration value="EssPresentWeather" />
+      <xs:enumeration value="EssUvIndex" />
+      <xs:enumeration value="EssTotalSun" />
+      <xs:enumeration value="EssInstantaneousTerrestrialRadiation" />
+      <xs:enumeration value="EssInstantaneousSolarRadiation" />
+      <xs:enumeration value="EssTotalRadiation" />
+      <xs:enumeration value="EssTotalRadiationPeriod" />
+      <xs:enumeration value="EssVisibility" />
+      <xs:enumeration value="EssVisibilitySituation" />
+      <xs:enumeration value="EssSurfaceBlackIceSignal" />
+      <xs:enumeration value="EssSurfaceFreezePoint" />
+      <xs:enumeration value="EssSurfaceSalinity" />
+      <xs:enumeration value="EssSurfaceStatus" />
+      <xs:enumeration value="EssSurfaceTemperature" />
+      <xs:enumeration value="EssSurfaceWaterDepth" />
+      <xs:enumeration value="EssMobileFriction" />
+      <xs:enumeration value="EssPavementTemperature" />
+      <xs:enumeration value="EssSubSurfaceTemperature" />
+      <xs:enumeration value="EssSubSurfaceMoisture" />
+      <xs:enumeration value="EssCO" />
+      <xs:enumeration value="EssCO2" />
+      <xs:enumeration value="EssNO" />
+      <xs:enumeration value="EssNO2" />
+      <xs:enumeration value="EssO3" />
+      <xs:enumeration value="EssPM10" />
+      <xs:enumeration value="EssSO3" />
+      <xs:enumeration value="EssSnapshotStoragePath" />
+      <xs:enumeration value="EssSnapshotFilename" />
+      <xs:enumeration value="EssWaterDepth" />
+      <xs:enumeration value="PtsSprayerState" />
+      <xs:enumeration value="PtsSignalEventCount" />
+      <xs:enumeration value="PtsLastSignalEvent" />
+      <xs:enumeration value="PtsActiveEventCount" />
+      <xs:enumeration value="PtsInactiveEventCount" />
+      <xs:enumeration value="PtsLastActiveEvent" />
+      <xs:enumeration value="PtsLastInactiveEvent" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

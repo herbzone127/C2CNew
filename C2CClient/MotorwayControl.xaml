@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="C2CClient.MotorwayControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C2CClient"
+             xmlns:vm="clr-namespace:C2CClient.MMViewModels"
+             Name="motorwayControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:MMDeviceViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+        <Button Grid.Row="1" Command ="{Binding MMDeviceCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type local:MotorwayControl}}}"  Grid.Column="0" Height="50px" Width="150px" HorizontalAlignment="Center" Background="DarkBlue" FontWeight="Bold" Foreground="White">Motorway Device</Button>
+        <Button Grid.Row="3"  Grid.Column="2" Height="50px" Width="150px" HorizontalAlignment="Center">Motorway Device Control</Button>
+        <Button Grid.Row="1" Command ="{Binding MMIncidentCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type local:MotorwayControl}}}" Background="DarkBlue" 
+                FontWeight="Bold" Foreground="White" Grid.Column="1"
+                Height="50px" Width="150px" HorizontalAlignment="Center">Motorway Incident</Button>
+        <Button Grid.Row="2"  Grid.Column="0" Height="50px" Width="150px" HorizontalAlignment="Center">Motorway Plan</Button>
+        <Button Grid.Row="2"  Grid.Column="1" Height="50px" Width="150px" HorizontalAlignment="Center">Motorway Route</Button>
+        <Button Grid.Row="2"  Grid.Column="2" Height="50px" Width="150px" HorizontalAlignment="Center">Motorway Sensor</Button>
+        <Button Grid.Row="3"  Grid.Column="0" Height="50px" Width="150px" HorizontalAlignment="Center">Motorway TrafficSub Centre</Button>
+        <Button Grid.Row="3"  Grid.Column="1" Height="50px" Width="150px" HorizontalAlignment="Center">MotorwayTransportInfrastructureAsset</Button>
+        <Button Grid.Row="1" Command ="{Binding MMWeatherCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,
+            AncestorType={x:Type local:MotorwayControl}}}" Grid.Column="3" Height="50px" Width="150px"
+                Background="DarkBlue" FontWeight="Bold" Foreground="White"
+                HorizontalAlignment="Center">Motorway Weather</Button>
+        <Button Grid.Row="4"  Grid.Column="1" Height="50px" Width="150px" HorizontalAlignment="Center">MsgContext</Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/tmc/services/entity/routes/Route_v0" xmlns:v0p1="http://transport.nsw.gov.au/tmc/services/entity/routes/Route_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Route_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/routes/Route_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+			Route Service - Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/routes/Route_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="SOAPHeader_v1.xsd" namespace="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" />
+      <xs:element name="publishRouteStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:routeStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishRouteStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="publishRouteStatus">
+    <part name="message" element="v0p1:publishRouteStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishRouteStatusResponse">
+    <part name="message" element="v0p1:publishRouteStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <portType name="RoutePortType_v0p1">
+    <operation name="publishRouteStatus">
+      <documentation>
+        <objectClass>Route</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ????</requirement>
+      </documentation>
+      <input message="tns:publishRouteStatus" />
+      <output message="tns:publishRouteStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="RouteSoapHttpBinding_v0p1" type="tns:RoutePortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="publishRouteStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Route:Services#PublishRouteStatus" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishRouteStatus" part="header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishRouteStatusResponse" part="header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Route_v0p1">
+    <port name="RouteSoapHttpPort" binding="tns:RouteSoapHttpBinding_v0p1">
+      <soap:address location="http://tmdd.owner.center.com/c2cxml/" />
+    </port>
+  </service>
+</definitions>

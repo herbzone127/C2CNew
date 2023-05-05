@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="8f5f9925-b112-4677-816d-a01752a28c7f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="D:\Projects\AlexanderCO\c2capplicationinformation\TfNSW\TMC\Device_v0.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LRMS-Adopted-02-00-00.xsd" MetadataType="Schema" ID="f4aff463-f04c-4d6a-acc3-2ad81506c21d" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/LRMS-Adopted-02-00-00.xsd" />
+    <MetadataFile FileName="ITIS-Adopted-03-00-02.xsd" MetadataType="Schema" ID="d2e3557d-2290-452b-a7bc-a76b4e868cee" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/ITIS-Adopted-03-00-02.xsd" />
+    <MetadataFile FileName="TMDD-Extensions.xsd" MetadataType="Schema" ID="7cc2f696-b925-42d3-8fa1-23d6979c4973" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD-Extensions.xsd" />
+    <MetadataFile FileName="SOAPHeader_v1.xsd" MetadataType="Schema" ID="a9dcf555-2476-48e3-bd03-9a181604fb5b" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/TfNSW/TMC/SOAPHeader_v1.xsd" />
+    <MetadataFile FileName="TMDD.xsd" MetadataType="Schema" ID="1b932977-3e3b-4176-88a5-d9400bfafd54" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD.xsd" />
+    <MetadataFile FileName="NTCIP-References.xsd" MetadataType="Schema" ID="ba02392e-b4db-480e-9b31-59535018f4fe" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/NTCIP-References.xsd" />
+    <MetadataFile FileName="C2C.xsd" MetadataType="Schema" ID="02758f49-3a12-4f28-968f-f0ba45aa0b97" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/C2C.xsd" />
+    <MetadataFile FileName="ITIS-Local-03-00-02.xsd" MetadataType="Schema" ID="2dbd2e23-f850-41ee-8ffd-1b513d9b5e26" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/ITIS-Local-03-00-02.xsd" />
+    <MetadataFile FileName="LRMS-Local-02-00-00.xsd" MetadataType="Schema" ID="9b80d005-0e52-4179-a73b-7d775bff109d" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/LRMS-Local-02-00-00.xsd" />
+    <MetadataFile FileName="Device_v0.wsdl" MetadataType="Wsdl" ID="a1f8e347-be4a-407e-817a-f47ecf5f8ced" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/TfNSW/TMC/Device_v0.wsdl" />
+    <MetadataFile FileName="TMDD-Local-12-05-01.xsd" MetadataType="Schema" ID="f4e139ec-2aae-4165-bb17-4f57294d522c" SourceId="1" SourceUrl="file:///D:/Projects/AlexanderCO/c2capplicationinformation/xsd/tmdd/TMDD-Local-12-05-01.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

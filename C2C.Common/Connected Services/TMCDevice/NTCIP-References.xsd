@@ -1,0 +1,1722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.ntcip.org/c2f-object-references" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.ntcip.org/c2f-object-references" version="DRAFT" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+			TMDD V3.02 Standard - Draft v2
+			Last Updated: July 23, 2011 - Ronald Tsang, Roads and Maritime Services, NSW
+			
+   </xs:documentation>
+  </xs:annotation>
+  <xs:simpleType name="TimeBaseScheduleNumber">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TimeBaseScheduleMonth">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="TimeBaseScheduleDay">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="TimeBaseScheduleDate">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="TimeBaseScheduleDayPlan">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="DayPlanHour">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="23" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DayPlanMinute">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="59" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CoordCycleStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="510" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CoordSyncStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="510" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OverlapNumber">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">overlap</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OverlapStatusGroupNumber">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">group</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OverlapStatusGroupGreens">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="OverlapStatusGroupReds">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="OverlapStatusGroupYellows">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PatternCycleTime">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PatternOffsetTime">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupNumber">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">group</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupDontWalks">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupGreens">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupPedClears">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupReds">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupWalks">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseStatusGroupYellows">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PhaseNumber">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">phase</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RingStatus">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="SplitCoordPhase">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SplitTime">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="SplitMode">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="none" />
+          <xs:enumeration value="minimumVehicleRecall" />
+          <xs:enumeration value="maximumVehicleRecall" />
+          <xs:enumeration value="pedestrianRecall" />
+          <xs:enumeration value="maximumVehicleAndPedestrianRecall" />
+          <xs:enumeration value="phaseOmitted" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="SpecialFunctionOutputNumber">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">output</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TimebaseAscPatternSync">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">minute</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DefaultFont">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FontNumber">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FontHeight">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="FontCharSpacing">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="FontLineSpacing">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="FontVersionID">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="FontStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="11" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="notUsed" />
+          <xs:enumeration value="modifying" />
+          <xs:enumeration value="calculatingID" />
+          <xs:enumeration value="readyForUse" />
+          <xs:enumeration value="inUse" />
+          <xs:enumeration value="permanent" />
+          <xs:enumeration value="modifyReq" />
+          <xs:enumeration value="Req" />
+          <xs:enumeration value="notUsedReq" />
+          <xs:enumeration value="unmanagedReq" />
+          <xs:enumeration value="unmanaged" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="CharacterNumber">
+    <xs:restriction base="xs:unsignedShort">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CharacterWidth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="CharacterBitmap">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsMaxNumberPages">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pages</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMaxMultiStringLength">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">byte</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsColorScheme">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="monochrome1bit" />
+          <xs:enumeration value="monochrome8bit" />
+          <xs:enumeration value="colorClassic" />
+          <xs:enumeration value="color24bit" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMsgSourceMode">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="14" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="local" />
+          <xs:enumeration value="external" />
+          <xs:enumeration value="otherCom1 (retired)" />
+          <xs:enumeration value="otherCom2 (retired)" />
+          <xs:enumeration value="otherCom3 (retired)" />
+          <xs:enumeration value="otherCom4 (retired)" />
+          <xs:enumeration value="central" />
+          <xs:enumeration value="timebasedScheduler" />
+          <xs:enumeration value="powerRecovery" />
+          <xs:enumeration value="reset" />
+          <xs:enumeration value="commLoss" />
+          <xs:enumeration value="powerLoss" />
+          <xs:enumeration value="endDuration" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DmsSupportedMultiTags">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageMultiString">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageBeacon">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMsgTableSource">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="8" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="notUsed" />
+          <xs:enumeration value="modifying" />
+          <xs:enumeration value="validating" />
+          <xs:enumeration value="valid" />
+          <xs:enumeration value="error" />
+          <xs:enumeration value="modifyReq" />
+          <xs:enumeration value="validateReq" />
+          <xs:enumeration value="notUsedReq" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageMemoryType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other (retired)" />
+          <xs:enumeration value="permanent" />
+          <xs:enumeration value="changeable" />
+          <xs:enumeration value="volatile" />
+          <xs:enumeration value="currentBuffer" />
+          <xs:enumeration value="schedule" />
+          <xs:enumeration value="blank" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DmsSignTechnology">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsBeaconType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="13" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="none" />
+          <xs:enumeration value="oneBeacon" />
+          <xs:enumeration value="twoBeaconSyncFlash" />
+          <xs:enumeration value="twoBeaconsOppFlash" />
+          <xs:enumeration value="fourBeaconSyncFlash" />
+          <xs:enumeration value="fourBeaconAltRowFlash" />
+          <xs:enumeration value="fourBeaconAltColumnFlash" />
+          <xs:enumeration value="fourBeaconAltDiagonalFlash" />
+          <xs:enumeration value="fourBeaconNoSyncFlash" />
+          <xs:enumeration value="oneBeaconStrobe" />
+          <xs:enumeration value="twoBeaconStrobe" />
+          <xs:enumeration value="fourBeaconStrobe" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageRunTimePriority">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DmsMessageTimeRemaining">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">minute</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsSignHeightPixels">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsSignWidthPixels">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsSignHeight">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsSignWidth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsCharacterHeightPixels">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsCharacterWidthPixels">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">pixel</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsVerticalBorder">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="DmsHorizontalBorder">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsHorizontalPitch">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="VmsVerticalPitch">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="EssNtcipCategory">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="permanent" />
+          <xs:enumeration value="transportable" />
+          <xs:enumeration value="mobile" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssTypeofStation">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssDoorStatus">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssBatteryStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">percent</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="101" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssLineVolts">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">volts root mean squared (Vrms)</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="EssWeatherBlock">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="EssReferenceHeight">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-400" />
+      <xs:maxInclusive value="8001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssAtmosphericPressure">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">decapascal</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssAvgWindDirection">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="361" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssProbability">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">percent</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="101" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssAvgMaxWindGustDirection">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="361" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssAvgWindSpeed">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of meters per second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssAvgWindGustSpeed">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of meters per second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssAirTemperature">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssDewpointTemp">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssMaxTemp">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssMinTemp">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssRelativeHumidity">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">percent humidity</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="101" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssWaterDepth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">centimeters</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssAdjacentSnowDepth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">centimeters</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="3001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssRoadwaySnowDepth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">centimeters</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="3001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssRoadwaySnowPackDepth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">centimeters</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="3001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssPrecipRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of grams per square meter per second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSnowfallAccumRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">10^-7 meters per second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssIceThickness">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeters</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssUvIndex">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">radiation level</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssTotalSun">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">minutes over 24 hours</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort">
+      <xs:maxInclusive value="1441" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssInstantaneousTerrestrialRadiation">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">watts per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-2048" />
+      <xs:maxInclusive value="2049" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssInstantaneousSolarRadiation">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">watts per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-2048" />
+      <xs:maxInclusive value="2049" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssTotalRadiation">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">watts per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-2048" />
+      <xs:maxInclusive value="2049" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssTotalRadiationPeriod">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">watts per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="86400" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssVisibility">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">one tenth of a meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedInt">
+      <xs:maxInclusive value="1000001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceTemperature">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssPavementTemperature">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceWaterDepth">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">millimeter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceSalinity">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per one hundred thousand by weight</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceFreezePoint">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssPavementBlock">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSubSurfaceData">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSubSurfaceTemperature">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celsius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="-1000" />
+      <xs:maxInclusive value="1001" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssSubSurfaceMoisture">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">percent saturation</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="101" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssMobileFriction">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">percent friction</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="101" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtsSprayerState">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="inactive" />
+          <xs:enumeration value="active" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="PtsSignalEventCount">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="PtsLastSignalEvent">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="PtsActiveEventCount">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="PtsInactiveEventCount">
+    <xs:restriction base="xs:unsignedInt" />
+  </xs:simpleType>
+  <xs:simpleType name="PtsLastActiveEvent">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="PtsLastInactiveEvent">
+    <xs:restriction base="xs:unsignedLong" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSnapshotCameraStoragePath">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSnapshotCameraFilename">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceBlackIce">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="no ice" />
+          <xs:enumeration value="black ice" />
+          <xs:enumeration value="pavement sensor faulty or not present" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssSurfaceStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="14" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="error" />
+          <xs:enumeration value="dry" />
+          <xs:enumeration value="TraceMoisture" />
+          <xs:enumeration value="wet" />
+          <xs:enumeration value="chemicallyWet" />
+          <xs:enumeration value="iceWarning" />
+          <xs:enumeration value="iceWatch" />
+          <xs:enumeration value="snowWarning" />
+          <xs:enumeration value="snowWatch" />
+          <xs:enumeration value="absorption" />
+          <xs:enumeration value="dew" />
+          <xs:enumeration value="frost" />
+          <xs:enumeration value="absorptionAtDewpoint" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssVisibilitySituation">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="other" />
+          <xs:enumeration value="unknown" />
+          <xs:enumeration value="clear" />
+          <xs:enumeration value="fogNotPatchy" />
+          <xs:enumeration value="patchyFog" />
+          <xs:enumeration value="blowingSnow" />
+          <xs:enumeration value="smoke" />
+          <xs:enumeration value="seaSpray" />
+          <xs:enumeration value="vehicleSpray" />
+          <xs:enumeration value="blowingDustOrSand" />
+          <xs:enumeration value="sunGlare" />
+          <xs:enumeration value="swarmsOfInsects" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssMaxWindGustSpeed">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">decimeter per second</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssMaxWindGustDirection">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">degrees</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssWetBulbTemp">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of degrees Celcius</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short" />
+  </xs:simpleType>
+  <xs:simpleType name="EssPresentWeather">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="13" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Nothing significant to report" />
+          <xs:enumeration value="Fog" />
+          <xs:enumeration value="Rain, not freezing, slight" />
+          <xs:enumeration value="Rain, not freezing, moderate" />
+          <xs:enumeration value="Rain, not freezing, heavy" />
+          <xs:enumeration value="Rain, freezing, slight" />
+          <xs:enumeration value="Rain, freezing, moderate" />
+          <xs:enumeration value="Rain, freezing, heavy" />
+          <xs:enumeration value="Snow, slight" />
+          <xs:enumeration value="Snow, moderate" />
+          <xs:enumeration value="Snow, heavy" />
+          <xs:enumeration value="Blowing snow, impossible to determine whether snow is falling or not" />
+          <xs:enumeration value="Visibility sensor not present or faulty" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="EssCO">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssCO2">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssNO">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssNO2">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssSO2">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssO3">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssPM10">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">parts per million</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EssPrecipitationOneHour">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of kilograms per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="EssPrecipitation24Hours">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of kilograms per square meter</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangePanLeftLimit">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">hundredths of a degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangePanRightLimit">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">hundredths of a degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangeTiltUpLimit">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">hundredths of a degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangeTiltDownLimit">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">hundredths of a degree</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangeZoomLimit">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangeFocusLimit">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RangeIrisLimit">
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="PresetGotoPosition">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="PositionFocusLens">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PositionIrisLens">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PositionTilt">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PositionPan">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PositionZoomLens">
+    <xs:restriction base="xs:string">
+      <xs:length value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RmcAbsoluteMinMeterRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcAbsoluteMaxMeterRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcSystemMinMeterRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcSystemMaxMeterRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcManualPlan">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcManualRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcAverageFlowRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcAverageOccupancy">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenths of a percent</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcAverageSpeed">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">kilometers per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcDemandStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="recalled" />
+          <xs:enumeration value="working" />
+          <xs:enumeration value="otherError" />
+          <xs:enumeration value="erraticCount" />
+          <xs:enumeration value="maxPresence" />
+          <xs:enumeration value="noActivity" />
+          <xs:enumeration value="errorAtSensor" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcQueueStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="disabled" />
+          <xs:enumeration value="working" />
+          <xs:enumeration value="otherError" />
+          <xs:enumeration value="erraticCount" />
+          <xs:enumeration value="maxPresence" />
+          <xs:enumeration value="noActivity" />
+          <xs:enumeration value="errorAtSensor" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcPassageStatus">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="recalled" />
+          <xs:enumeration value="working" />
+          <xs:enumeration value="otherError" />
+          <xs:enumeration value="erraticCount" />
+          <xs:enumeration value="maxPresence" />
+          <xs:enumeration value="noActivity" />
+          <xs:enumeration value="errorAtSensor" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcOperMaxMeterRateStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcOperMinMeterRateStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcRequestCommandSource">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="manual" />
+          <xs:enumeration value="communications" />
+          <xs:enumeration value="interconnect" />
+          <xs:enumeration value="timebaseControl" />
+          <xs:enumeration value="default" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcImplementCommandSource">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="manual" />
+          <xs:enumeration value="communications" />
+          <xs:enumeration value="interconnect" />
+          <xs:enumeration value="timebaseControl" />
+          <xs:enumeration value="default" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcRequestAction">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="dark" />
+          <xs:enumeration value="restInGreen" />
+          <xs:enumeration value="fixedRate" />
+          <xs:enumeration value="trafficResponsive" />
+          <xs:enumeration value="emergencyGreen" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcRequestPlan">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcRequestRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcRequestVehiclesPerGrn">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcImplementAction">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="8" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="dark" />
+          <xs:enumeration value="restInGreen" />
+          <xs:enumeration value="fixedRate" />
+          <xs:enumeration value="trafficResponsive" />
+          <xs:enumeration value="emergencyGreen" />
+          <xs:enumeration value="holdMeter" />
+          <xs:enumeration value="holdNonMeter" />
+          <xs:enumeration value="holdRestInGreen" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcImplementPlan">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcImplementRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcImplementVehiclesPerGrn">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBActionCtrl">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="dark" />
+          <xs:enumeration value="restInGreen" />
+          <xs:enumeration value="fixedRate" />
+          <xs:enumeration value="trafficResponsive" />
+          <xs:enumeration value="emergencyGreen" />
+          <xs:enumeration value="skip" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBPlanCtrl">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBRateCtrl">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBVehiclesPerGrnCtrl">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBCMinMeterRateCtrl">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBCMaxMeterRateCtrl">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcTBMLUsageMode">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedByte">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="8" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="notUsed" />
+          <xs:enumeration value="schemeF" />
+          <xs:enumeration value="schemeO" />
+          <xs:enumeration value="schemeFO" />
+          <xs:enumeration value="schemeS" />
+          <xs:enumeration value="schemeFS" />
+          <xs:enumeration value="schemeOS" />
+          <xs:enumeration value="schemeFOS" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="insert-extension-values-here" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="RmcActionNum">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RmcMeteringLevel">
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcMeteringRate">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per green</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcFlowRateThreshold">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">vehicles per green</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcOccupancyThreshold">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">tenth of a percent</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedShort" />
+  </xs:simpleType>
+  <xs:simpleType name="RmcSpeedThreshold">
+    <xs:annotation>
+      <xs:documentation>
+        <units xmlns="http://www.ntcip.org/c2f-object-references">kilometers per hour</units>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte" />
+  </xs:simpleType>
+  <xs:simpleType name="ZoneOutputMode">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

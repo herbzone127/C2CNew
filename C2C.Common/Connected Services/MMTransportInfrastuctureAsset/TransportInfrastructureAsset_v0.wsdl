@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:header="http://transport.nsw.gov.au/rms" xmlns:tns="http://transport.nsw.gov.au/mm/services/entity/transport_network/TransportInfrastructureAsset_v0" xmlns:v0p1="http://transport.nsw.gov.au/mm/services/entity/transport_network/TransportInfrastructureAsset_v0p1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="TransportInfrastructureAsset_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/mm/services/entity/transport_network/TransportInfrastructureAsset_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Transport Infrastructure Asset v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/mm/services/entity/transport_network/TransportInfrastructureAsset_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xsd:import schemaLocation="msgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xsd:element name="getDMSInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDMSInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:dMSInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLCSInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLCSInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:lCSInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDetectorInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDetectorInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:detectorInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOHDInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOHDInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:oHDInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getESSInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getESSInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:eSSInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRampMeterInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRampMeterInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:rampMeterInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSignalInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSignalInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:intersectionSignalInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGateInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGateInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:gateInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPlanInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPlanInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getDMSInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDMSInventory" />
+  </wsdl:message>
+  <wsdl:message name="getDMSInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDMSInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLCSInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getLCSInventory" />
+  </wsdl:message>
+  <wsdl:message name="getLCSInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getLCSInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetectorInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDetectorInventory" />
+  </wsdl:message>
+  <wsdl:message name="getDetectorInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDetectorInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOHDInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getOHDInventory" />
+  </wsdl:message>
+  <wsdl:message name="getOHDInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getOHDInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getESSInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getESSInventory" />
+  </wsdl:message>
+  <wsdl:message name="getESSInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getESSInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRampMeterInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getRampMeterInventory" />
+  </wsdl:message>
+  <wsdl:message name="getRampMeterInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getRampMeterInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSignalInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getSignalInventory" />
+  </wsdl:message>
+  <wsdl:message name="getSignalInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getSignalInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGateInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getGateInventory" />
+  </wsdl:message>
+  <wsdl:message name="getGateInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getGateInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPlanInventory">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getPlanInventory" />
+  </wsdl:message>
+  <wsdl:message name="getPlanInventoryResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getPlanInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:portType name="TransportInfrastructureAssetPortType_v0p1">
+    <wsdl:operation name="getDMSInventory">
+      <wsdl:input message="tns:getDMSInventory" />
+      <wsdl:output message="tns:getDMSInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getLCSInventory">
+      <wsdl:input message="tns:getLCSInventory" />
+      <wsdl:output message="tns:getLCSInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetectorInventory">
+      <wsdl:input message="tns:getDetectorInventory" />
+      <wsdl:output message="tns:getDetectorInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getOHDInventory">
+      <wsdl:input message="tns:getOHDInventory" />
+      <wsdl:output message="tns:getOHDInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getESSInventory">
+      <wsdl:input message="tns:getESSInventory" />
+      <wsdl:output message="tns:getESSInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getRampMeterInventory">
+      <wsdl:input message="tns:getRampMeterInventory" />
+      <wsdl:output message="tns:getRampMeterInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getSignalInventory">
+      <wsdl:input message="tns:getSignalInventory" />
+      <wsdl:output message="tns:getSignalInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getGateInventory">
+      <wsdl:input message="tns:getGateInventory" />
+      <wsdl:output message="tns:getGateInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getPlanInventory">
+      <wsdl:input message="tns:getPlanInventory" />
+      <wsdl:output message="tns:getPlanInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransportInfrastructureAssetSOAPBinding_v0p1" type="tns:TransportInfrastructureAssetPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDMSInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getDMSInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getDMSInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLCSInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getLCSInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getLCSInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDetectorInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getDetectorInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getDetectorInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOHDInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getOHDInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getOHDInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getESSInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getESSInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getESSInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRampMeterInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getRampMeterInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getRampMeterInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSignalInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getSignalInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getSignalInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGateInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getGateInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getGateInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPlanInventory">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:getPlanInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getPlanInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransportInfrastructureAsset_v0p1">
+    <wsdl:port name="TransportInfrastructureAssetSOAP" binding="tns:TransportInfrastructureAssetSOAPBinding_v0p1">
+      <soap:address location="http://www.example.org/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

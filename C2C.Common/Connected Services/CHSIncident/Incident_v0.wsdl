@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/rms" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/rms/services/entity/incidents/Incident_v0" xmlns:v0p1="http://transport.nsw.gov.au/rms/services/entity/incidents/Incident_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Incident_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/rms/services/entity/incidents/Incident_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+		Incident Service - Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/rms/services/entity/incidents/Incident_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="MsgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xs:element name="getIncidentInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:eventRequestMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getIncidentInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:fEUMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishIncidentInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:fEUMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishIncidentInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishActionLogInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:actionLogMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishActionLogInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="publishIncidentInformation">
+    <part name="message" element="v0p1:publishIncidentInformation" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="publishIncidentInformationResponse">
+    <part name="message" element="v0p1:publishIncidentInformationResponse" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="getIncidentInformation">
+    <part name="message" element="v0p1:getIncidentInformation" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="getIncidentInformationResponse">
+    <part name="message" element="v0p1:getIncidentInformationResponse" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <message name="publishActionLogInformation">
+    <part name="rms_header" element="header:msgContext" />
+    <part name="message" element="v0p1:publishActionLogInformation" />
+  </message>
+  <message name="publishActionLogInformationResponse">
+    <part name="rms_header" element="header:msgContext" />
+    <part name="message" element="v0p1:publishActionLogInformationResponse" />
+  </message>
+  <portType name="IncidentPortType_v0p1">
+    <operation name="getIncidentInformation">
+      <documentation>
+        <objectClass>Event</objectClass>
+        <msgPattern>R-R</msgPattern>
+        <requirement>REQ939</requirement>
+      </documentation>
+      <input message="tns:getIncidentInformation" />
+      <output message="tns:getIncidentInformationResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishIncidentInformation">
+      <documentation>
+        <objectClass>Event</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ940</requirement>
+      </documentation>
+      <input message="tns:publishIncidentInformation" />
+      <output message="tns:publishIncidentInformationResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishActionLogInformation">
+      <input message="tns:publishActionLogInformation" />
+      <output message="tns:publishActionLogInformationResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="IncidentSoapHttpBinding_v0p1" type="tns:IncidentPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getIncidentInformation">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getIncidentInformation" part="rms_header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getIncidentInformationResponse" part="rms_header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishIncidentInformation">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishIncidentInformation" part="rms_header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishIncidentInformationResponse" part="rms_header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishActionLogInformation">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:header message="tns:publishActionLogInformation" part="rms_header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishActionLogInformationResponse" part="rms_header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Incident_v0p1">
+    <port name="IncidentSoapHttpPort" binding="tns:IncidentSoapHttpBinding_v0p1">
+      <soap:address location="http://soanp11z1.rta.nsw.gov.au:9080/CHS_MTW_Incident-mediationWeb/sca/CHS_MTW_IncidentExport" />
+    </port>
+  </service>
+</definitions>

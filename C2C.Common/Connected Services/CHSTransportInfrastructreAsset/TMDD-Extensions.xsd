@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ITISLocal="http://www.ITIS-Local-03-00-02" xmlns:tns="http://www.tmdd.org/3/messages" xmlns:lrms="http://www.LRMS-Adopted-02-00-00" xmlns:ntcip="http://www.ntcip.org/c2f-object-references" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tmdd.org/3/messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="TMDD.xsd" />
+  <xs:import schemaLocation="ITIS-Local-03-00-02.xsd" namespace="http://www.ITIS-Local-03-00-02" />
+  <xs:import schemaLocation="NTCIP-References.xsd" namespace="http://www.ntcip.org/c2f-object-references" />
+  <xs:import schemaLocation="LRMS-Adopted-02-00-00.xsd" namespace="http://www.LRMS-Adopted-02-00-00" />
+  <xs:complexType name="DetectorDataDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DetectorDataDetail_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="suspect-data-flag" type="tns:Binary-flag" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RampMeterLaneStatusDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RampMeterLaneStatusDetails_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="capacity-existing" type="tns:Link-capacity-existing" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EventType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EventType_TMDD">
+        <xs:choice>
+          <xs:element minOccurs="0" name="tunnel-system-fault" type="ITISLocal:TunnelSystemFault" />
+          <xs:element minOccurs="0" name="tunnel-system-operations" type="ITISLocal:TunnelSystemOperations" />
+          <xs:element minOccurs="0" name="tow" type="ITISLocal:Tow" />
+          <xs:element minOccurs="0" name="miscellaneous" type="ITISLocal:Miscellaneous" />
+          <xs:element minOccurs="0" name="road-occupancy" type="ITISLocal:RoadOccupancy" />
+          <xs:element minOccurs="0" name="road-use" type="ITISLocal:RoadUse" />
+          <xs:element minOccurs="0" name="signal-fault" type="ITISLocal:SignalFault" />
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DataRoadWeather">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataRoadWeather_TMDD">
+        <xs:choice>
+          <xs:element minOccurs="0" name="visibility-situation" type="ntcip:EssVisibilitySituation" />
+          <xs:element minOccurs="0" name="uv-index" type="ntcip:EssUvIndex" />
+          <xs:element minOccurs="0" name="probability" type="ntcip:EssProbability" />
+          <xs:element minOccurs="0" name="max-wind-gust-speed" type="ntcip:EssMaxWindGustSpeed" />
+          <xs:element minOccurs="0" name="max-wind-gust-direction" type="ntcip:EssMaxWindGustDirection" />
+          <xs:element minOccurs="0" name="wet-bulb-temp" type="ntcip:EssWetBulbTemp" />
+          <xs:element minOccurs="0" name="present-weather" type="ntcip:EssPresentWeather" />
+          <xs:element minOccurs="0" name="CO" type="ntcip:EssCO" />
+          <xs:element minOccurs="0" name="CO2" type="ntcip:EssCO2" />
+          <xs:element minOccurs="0" name="NO" type="ntcip:EssNO" />
+          <xs:element minOccurs="0" name="NO2" type="ntcip:EssNO2" />
+          <xs:element minOccurs="0" name="SO2" type="ntcip:EssSO2" />
+          <xs:element minOccurs="0" name="O3" type="ntcip:EssO3" />
+          <xs:element minOccurs="0" name="PM10" type="ntcip:EssPM10" />
+          <xs:element minOccurs="0" name="precipitation-one-hour" type="ntcip:EssPrecipitationOneHour" />
+          <xs:element minOccurs="0" name="precipitation-24-hours" type="ntcip:EssPrecipitation24Hours" />
+          <xs:element minOccurs="0" name="precipitation-start-time" type="tns:DateTimeZone" />
+          <xs:element minOccurs="0" name="precipitation-end-time" type="tns:DateTimeZone" />
+          <xs:element minOccurs="0" name="total-sun" type="ntcip:EssTotalSun" />
+          <xs:element minOccurs="0" name="instantaneous-terrestrial-radiation" type="ntcip:EssInstantaneousTerrestrialRadiation" />
+          <xs:element minOccurs="0" name="instantaneous-solar-radiation" type="ntcip:EssInstantaneousSolarRadiation" />
+          <xs:element minOccurs="0" name="total-radiation" type="ntcip:EssTotalRadiation" />
+          <xs:element minOccurs="0" name="total-radiation-period" type="ntcip:EssTotalRadiationPeriod" />
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DataSurfaceConditions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataSurfaceConditions_TMDD">
+        <xs:choice>
+          <xs:element minOccurs="0" name="surface-black-ice-signal" type="ntcip:EssSurfaceBlackIce" />
+          <xs:element minOccurs="0" name="surface-status" type="ntcip:EssSurfaceStatus" />
+          <xs:element minOccurs="0" name="snapshot-camera-storage-path" type="ntcip:EssSnapshotCameraStoragePath" />
+          <xs:element minOccurs="0" name="snapshot-camera-filename" type="ntcip:EssSnapshotCameraFilename" />
+          <xs:element minOccurs="0" name="sub-surface-temperature" type="ntcip:EssSubSurfaceTemperature" />
+          <xs:element minOccurs="0" name="sub-surface-moisture" type="ntcip:EssSubSurfaceMoisture" />
+          <xs:element minOccurs="0" name="pts-sprayer-state" type="ntcip:PtsSprayerState" />
+          <xs:element minOccurs="0" name="pts-signal-event-count" type="ntcip:PtsSignalEventCount" />
+          <xs:element minOccurs="0" name="pts-last-signal-event" type="ntcip:PtsLastSignalEvent" />
+          <xs:element minOccurs="0" name="pts-active-event-count" type="ntcip:PtsActiveEventCount" />
+          <xs:element minOccurs="0" name="pts-inactive-event-count" type="ntcip:PtsInactiveEventCount" />
+          <xs:element minOccurs="0" name="pts-last-active-event" type="ntcip:PtsLastActiveEvent" />
+          <xs:element minOccurs="0" name="pts-last-inactive-event" type="ntcip:PtsLastInactiveEvent" />
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DevicePriorityQueueItem">
+    <xs:annotation>
+      <xs:documentation>Includes DMS setting details for all items in the DMS priority queue as per 3.9.0.0.10 update</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DevicePriorityQueueItem_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="dms-request-command" type="tns:Dms-request-command" />
+          <xs:element minOccurs="0" name="dms-command-parameters" type="tns:DMSControlDetails" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DMSStatus">
+    <xs:annotation>
+      <xs:documentation>Includes a message beacon element as per 3.9.0.0.3 Update</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DMSStatus_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message-beacon" type="ntcip:DmsMessageBeacon" />
+          <xs:element minOccurs="0" name="message-beacon-type" type="ntcip:DmsBeaconType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceStatusHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceStatusHeader_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="device-error" type="tns:Device-error" />
+          <xs:element minOccurs="0" maxOccurs="9" name="additional-device-error" type="tns:Device-error" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CenterActiveVerificationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CenterActiveVerificationResponse_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="in-control" type="tns:Binary-flag" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ESSThresholdDetails">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Global</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="threshold-level" type="xs:unsignedInt" />
+      <xs:element minOccurs="1" name="threshold-value" type="xs:string" />
+      <xs:element minOccurs="1" name="direction-of-change" type="ITISLocal:EssDirectionOfChange" />
+      <xs:element minOccurs="1" name="threshold-type" type="ITISLocal:EssThresholdType" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ESSStatus">
+    <xs:annotation>
+      <xs:documentation>Includes ESS threshold information</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ESSStatus_TMDD">
+        <xs:sequence>
+          <xs:element name="ess-threshold-list">
+            <xs:complexType>
+              <xs:sequence maxOccurs="64">
+                <xs:element maxOccurs="1" name="ess-threshold" type="tns:ESSThresholdDetails" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AlertReference">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Global</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="alert-update" type="xs:unsignedShort" />
+      <xs:element minOccurs="1" name="threshold-level" type="xs:unsignedInt" />
+      <xs:element minOccurs="1" form="qualified" name="threshold-level-status" type="ITISLocal:AlertThresholdStatus" />
+      <xs:element minOccurs="1" name="threshold-value" type="xs:int" />
+      <xs:element minOccurs="1" name="direction-of-change" type="ITISLocal:EssDirectionOfChange" />
+      <xs:element minOccurs="1" name="alert-source" type="ITISLocal:EssAlertSource" />
+      <xs:element minOccurs="1" name="update-time" type="tns:DateTimeZone">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement />
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OtherReference">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OtherReference_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="associated-alert" type="tns:AlertReference" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceReference">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DeviceReference_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="autonomous-plan-id" type="tns:Organization-resource-identifier" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="traveltime-confidence-level">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Route</objectClass>
+        <valueDomainTerm>pct</valueDomainTerm>
+        <units />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:unsignedByte">
+      <xs:maxInclusive value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RouteStatusList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RouteStatusList_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="confidence-level" type="tns:traveltime-confidence-level" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PlanActivationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="organization-requesting" type="tns:OrganizationInformation" />
+      <xs:element minOccurs="1" maxOccurs="1" name="plan-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="request-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="0" name="event-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="0" name="response-plan-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="0" name="plan-end-time" type="tns:DateTimeZone" />
+      <xs:element minOccurs="0" name="plan-start-time" type="tns:DateTimeZone" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanActivationResponse">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="organization-information" type="tns:OrganizationInformation" />
+      <xs:element minOccurs="1" maxOccurs="1" name="plan-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="request-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="0" maxOccurs="100" name="device-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="request-status" type="tns:Device-acknowledge-control" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanCancelActivationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="organization-requesting" type="tns:OrganizationInformation" />
+      <xs:element name="plan-id" type="tns:Organization-resource-identifier" />
+      <xs:element name="request-id" type="tns:Organization-resource-identifier" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanDMSInfo">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="dms-sign-type" type="tns:Dms-sign-type" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dms-message" type="ntcip:DmsMessageMultiString" />
+      <xs:element minOccurs="1" maxOccurs="1" name="message-number" type="ntcip:DmsMsgTableSource" />
+      <xs:element minOccurs="1" maxOccurs="1" name="message-beacon" type="ntcip:DmsMessageBeacon" />
+      <xs:element minOccurs="1" maxOccurs="1" name="message-beacon-type" type="ntcip:DmsBeaconType" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanGateInfo">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="gate-status" type="tns:Gate-status" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanLCSInfo">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="controlled-lane-number" type="tns:Link-lane-number" />
+      <xs:element minOccurs="1" maxOccurs="1" name="lane-current-state" type="tns:Lcs-lane-current-state" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanRampMeterInfo">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="meter-implemented-action" type="ntcip:RmcImplementAction" />
+      <xs:element minOccurs="1" maxOccurs="1" name="meter-implemented-plan" type="ntcip:RmcImplementPlan" />
+      <xs:element minOccurs="1" maxOccurs="1" name="meter-implemented-rate" type="ntcip:RmcImplementRate" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanSignalInfo">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="signal-timing-mode" type="tns:Intersection-signal-timing-mode" />
+      <xs:element minOccurs="1" maxOccurs="1" name="cycle-length" type="ntcip:PatternCycleTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="timing-pattern-id" type="tns:Organization-resource-identifier" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanDevice">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="device-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="device-type" type="tns:Device-type" />
+      <xs:element minOccurs="1" maxOccurs="1" name="device-location" type="lrms:GeoLocation" />
+      <xs:element minOccurs="1" maxOccurs="1" name="device-name" type="tns:Organization-resource-name" />
+      <xs:element minOccurs="1" maxOccurs="1" name="device-description" type="tns:Organization-resource-name" />
+      <xs:element minOccurs="1" maxOccurs="1" name="link-id" type="tns:Transportation-network-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="link-direction" type="tns:Link-direction" />
+      <xs:element minOccurs="1" maxOccurs="1" name="dms-information" type="tns:PlanDMSInfo" />
+      <xs:element minOccurs="1" maxOccurs="1" name="gate-information" type="tns:PlanGateInfo" />
+      <xs:element minOccurs="1" maxOccurs="1" name="lcs-information" type="tns:PlanLCSInfo" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ramp-meter-information" type="tns:PlanRampMeterInfo" />
+      <xs:element minOccurs="1" maxOccurs="1" name="signal-information" type="tns:PlanSignalInfo" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanInventoryHeader">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="organization-information" type="tns:OrganizationInformation" />
+      <xs:element minOccurs="1" maxOccurs="1" name="plan-id" type="tns:Organization-resource-identifier" />
+      <xs:element minOccurs="1" maxOccurs="1" name="plan-description" type="tns:Organization-resource-name" />
+      <xs:element minOccurs="1" maxOccurs="1" name="plan-type" type="tns:Plan-type" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanInventory">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" name="plan-inventory-header" type="tns:PlanInventoryHeader" />
+      <xs:element minOccurs="1" maxOccurs="100" name="device" type="tns:PlanDevice" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="planActivationRequestMsg" type="tns:PlanActivationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="planActivationResponseMsg" type="tns:PlanActivationResponse">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="planCancelActivationRequestMsg" type="tns:PlanCancelActivationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="getPlanStatusMsg" type="tns:PlanInformationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="planInventoryMsg">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence maxOccurs="10">
+        <xs:element name="plan-inventory-item" type="tns:PlanInventory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="Plan-operational-status">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <valueDomainTerm>cd</valueDomainTerm>
+        <units />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedInt">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active" />
+          <xs:enumeration value="cleared" />
+          <xs:enumeration value="cancelled" />
+          <xs:enumeration value="failed" />
+          <xs:enumeration value="not active" />
+          <xs:enumeration value="queued" />
+          <xs:enumeration value="scheduled" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="Plan-type">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedInt">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="shared" />
+          <xs:enumeration value="traffic management" />
+          <xs:enumeration value="incident response" />
+          <xs:enumeration value="maintenance" />
+          <xs:enumeration value="dynamic" />
+          <xs:enumeration value="closure" />
+          <xs:enumeration value="all plans" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="Plan-information-type">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:unsignedInt">
+          <xs:minInclusive value="1" />
+          <xs:maxInclusive value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="plan status" />
+          <xs:enumeration value="plan inventory" />
+          <xs:enumeration value="plan schedule" />
+          <xs:enumeration value="activation history" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:complexType name="PlanInformationRequestFilter">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement>REQ</requirement>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="plan-id-list">
+        <xs:complexType>
+          <xs:sequence maxOccurs="100">
+            <xs:element name="plan-id" type="tns:Organization-resource-identifier" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanStatusHeader">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="organization-information" type="tns:OrganizationInformation">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ936</requirement>
+            <requirement>REQ113</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plan-id" type="tns:Organization-resource-identifier">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ936</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plan-status" type="tns:Plan-operational-status">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement />
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="center-id" type="tns:Organization-resource-identifier">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ107</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="operator-id" type="tns:Organization-resource-identifier">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ110</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="event-id" type="tns:Organization-resource-identifier">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ111</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="last-comm-time" type="tns:DateTimeZone">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ114</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanStatus">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="restrictions" type="tns:Restrictions">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ1212</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plan-status-header" type="tns:PlanStatusHeader">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement />
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="plan-time-remaining" type="ntcip:DmsMessageTimeRemaining">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ39</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="plan-source-mode" type="ntcip:DmsMsgSourceMode">
+        <xs:annotation>
+          <xs:documentation>
+            <requirement>REQ38</requirement>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanInformationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="authentication" type="tns:Authentication" />
+      <xs:element name="organization-information" type="tns:OrganizationInformation" />
+      <xs:element minOccurs="0" name="organization-requesting" type="tns:OrganizationInformation" />
+      <xs:element name="plan-type" type="tns:Plan-type" />
+      <xs:element name="plan-information-type" type="tns:Plan-information-type" />
+      <xs:element minOccurs="1" name="plan-filter" type="tns:PlanInformationRequestFilter" />
+      <xs:any minOccurs="0" namespace="##other" processContents="lax" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="planInformationRequestMsg" type="tns:PlanInformationRequest" />
+  <xs:element name="planStatusMsg">
+    <xs:annotation>
+      <xs:documentation>
+        <objectClass>Plan</objectClass>
+        <requirement />
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence maxOccurs="100">
+        <xs:element name="plan-status-item" type="tns:PlanStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IntersectionSignalSpecialFunctions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IntersectionSignalSpecialFunctions_TMDD">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="timing-pattern-id" type="tns:Organization-resource-identifier" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

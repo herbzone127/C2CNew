@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="68a3d5a4-9fa7-4f8f-912a-28b8752d1b73" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="f6fa1456-97f8-48a1-9e3d-49f3a4358442" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd6" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c3f6ec91-145c-4dea-9e7f-c72410257174" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd7" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1a7e53a6-31c3-434a-a486-a90923ad9b2c" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd4" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="2a39f17f-b9e6-4bcd-b0e1-63437687b7f3" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd5" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="56247b87-b445-48de-a061-d3c5693744ea" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="d31b1845-ca5c-43c9-9af5-19905b85ba9e" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd3" />
+    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="e937fe0d-8bd9-4516-9e8e-20450b081aaa" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
+    <MetadataFile FileName="item7.xsd" MetadataType="Schema" ID="7418b6af-e983-46a2-9c81-a5bcac508fb4" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
+    <MetadataFile FileName="WeatherPortType_v0p1Client.wsdl" MetadataType="Wsdl" ID="838dfdf9-dd4a-465a-ba6b-0d3ce4097ffb" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

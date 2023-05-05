@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CHS_WeatherPortService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CHS_WeatherPortService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="getESSObservation">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q1:PropertyChangedEventHandler" />
+      <xs:element name="deviceInformationRequestMsgField" nillable="true" type="tns:DeviceInformationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getESSObservation" nillable="true" type="tns:getESSObservation" />
+  <xs:complexType name="DeviceInformationRequest">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q2:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authenticationField" nillable="true" type="tns:Authentication" />
+      <xs:element name="devicefilterField" nillable="true" type="tns:DeviceInformationRequestFilter" />
+      <xs:element name="deviceinformationtypeField" nillable="true" type="xs:string" />
+      <xs:element name="devicetypeField" nillable="true" type="xs:string" />
+      <xs:element name="organizationinformationField" nillable="true" type="tns:OrganizationInformation" />
+      <xs:element name="organizationrequestingField" nillable="true" type="tns:OrganizationInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequest" nillable="true" type="tns:DeviceInformationRequest" />
+  <xs:complexType name="Authentication">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q3:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="operatoridField" nillable="true" type="xs:string" />
+      <xs:element name="passwordField" nillable="true" type="xs:string" />
+      <xs:element name="useridField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Authentication" nillable="true" type="tns:Authentication" />
+  <xs:complexType name="DeviceInformationRequestFilter">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q4:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deviceidlistField" nillable="true" type="tns:DeviceInformationRequestFilterDeviceidlist" />
+      <xs:element name="linearreferenceField" nillable="true" type="xs:string" />
+      <xs:element name="linkdesignatorlistField" nillable="true" type="tns:DeviceInformationRequestFilterLinkdesignatorlist" />
+      <xs:element name="linkidlistField" nillable="true" type="tns:DeviceInformationRequestFilterLinkidlist" />
+      <xs:element name="networkidlistField" nillable="true" type="tns:DeviceInformationRequestFilterNetworkidlist" />
+      <xs:element name="patternidlistField" nillable="true" type="tns:DeviceInformationRequestFilterPatternidlist" />
+      <xs:element name="sectionidlistField" nillable="true" type="tns:DeviceInformationRequestFilterSectionidlist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilter" nillable="true" type="tns:DeviceInformationRequestFilter" />
+  <xs:complexType name="DeviceInformationRequestFilterDeviceidlist">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q5:PropertyChangedEventHandler" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="deviceidField" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterDeviceidlist" nillable="true" type="tns:DeviceInformationRequestFilterDeviceidlist" />
+  <xs:complexType name="DeviceInformationRequestFilterLinkdesignatorlist">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q7:PropertyChangedEventHandler" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="linkdesignatorField" nillable="true" type="q8:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterLinkdesignatorlist" nillable="true" type="tns:DeviceInformationRequestFilterLinkdesignatorlist" />
+  <xs:complexType name="DeviceInformationRequestFilterLinkidlist">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q9:PropertyChangedEventHandler" />
+      <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="linkField" nillable="true" type="q10:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterLinkidlist" nillable="true" type="tns:DeviceInformationRequestFilterLinkidlist" />
+  <xs:complexType name="DeviceInformationRequestFilterNetworkidlist">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q11:PropertyChangedEventHandler" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="networkidField" nillable="true" type="q12:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterNetworkidlist" nillable="true" type="tns:DeviceInformationRequestFilterNetworkidlist" />
+  <xs:complexType name="DeviceInformationRequestFilterPatternidlist">
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q13:PropertyChangedEventHandler" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="patternidField" nillable="true" type="q14:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterPatternidlist" nillable="true" type="tns:DeviceInformationRequestFilterPatternidlist" />
+  <xs:complexType name="DeviceInformationRequestFilterSectionidlist">
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q15:PropertyChangedEventHandler" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="sectionidField" nillable="true" type="q16:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInformationRequestFilterSectionidlist" nillable="true" type="tns:DeviceInformationRequestFilterSectionidlist" />
+  <xs:complexType name="OrganizationInformation">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q17:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="centercontactlistField" nillable="true" type="tns:OrganizationInformationCentercontactlist" />
+      <xs:element name="lastupdatetimeField" nillable="true" type="tns:DateTimeZone" />
+      <xs:element name="organizationcontactdetailsField" nillable="true" type="tns:ContactDetails" />
+      <xs:element name="organizationfunctionField" nillable="true" type="xs:string" />
+      <xs:element name="organizationidField" nillable="true" type="xs:string" />
+      <xs:element name="organizationlocationField" nillable="true" type="xs:string" />
+      <xs:element name="organizationnameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationInformation" nillable="true" type="tns:OrganizationInformation" />
+  <xs:complexType name="OrganizationInformationCentercontactlist">
+    <xs:sequence>
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q18:PropertyChangedEventHandler" />
+      <xs:element name="centercontactdetailsField" nillable="true" type="tns:ArrayOfOrganizationCenterInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationInformationCentercontactlist" nillable="true" type="tns:OrganizationInformationCentercontactlist" />
+  <xs:complexType name="ArrayOfOrganizationCenterInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizationCenterInformation" nillable="true" type="tns:OrganizationCenterInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizationCenterInformation" nillable="true" type="tns:ArrayOfOrganizationCenterInformation" />
+  <xs:complexType name="OrganizationCenterInformation">
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q19:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="centercontactdetailsField" nillable="true" type="tns:ContactDetails" />
+      <xs:element name="centerdescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="centeridField" nillable="true" type="xs:string" />
+      <xs:element name="centerlocationField" nillable="true" type="tns:GeoLocation" />
+      <xs:element name="centernameField" nillable="true" type="xs:string" />
+      <xs:element name="centertypeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizationCenterInformation" nillable="true" type="tns:OrganizationCenterInformation" />
+  <xs:complexType name="ContactDetails">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q20:PropertyChangedEventHandler" />
+      <xs:element name="addressline1Field" nillable="true" type="xs:string" />
+      <xs:element name="addressline2Field" nillable="true" type="xs:string" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="contactidField" nillable="true" type="xs:string" />
+      <xs:element name="countryField" nillable="true" type="xs:string" />
+      <xs:element name="emailaddressField" nillable="true" type="xs:string" />
+      <xs:element name="faxnumberField" nillable="true" type="xs:string" />
+      <xs:element name="mobilephoneidField" nillable="true" type="xs:string" />
+      <xs:element name="mobilephonenumberField" nillable="true" type="xs:string" />
+      <xs:element name="pageridField" nillable="true" type="xs:string" />
+      <xs:element name="pagernumberField" nillable="true" type="xs:string" />
+      <xs:element name="personnameField" nillable="true" type="xs:string" />
+      <xs:element name="persontitleField" nillable="true" type="xs:string" />
+      <xs:element name="phonealternateField" nillable="true" type="xs:string" />
+      <xs:element name="phonenumberField" nillable="true" type="xs:string" />
+      <xs:element name="radiounitField" nillable="true" type="xs:string" />
+      <xs:element name="stateField" nillable="true" type="xs:string" />
+      <xs:element name="zipcodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContactDetails" nillable="true" type="tns:ContactDetails" />
+  <xs:complexType name="GeoLocation">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q21:PropertyChangedEventHandler" />
+      <xs:element name="heightField" nillable="true" type="tns:Height" />
+      <xs:element name="horizontalDatumField" nillable="true" type="xs:string" />
+      <xs:element name="latitudeField" type="xs:int" />
+      <xs:element name="longitudeField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoLocation" nillable="true" type="tns:GeoLocation" />
+  <xs:complexType name="Height">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q22:PropertyChangedEventHandler" />
+      <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="itemsField" nillable="true" type="q23:ArrayOfanyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Height" nillable="true" type="tns:Height" />
+  <xs:complexType name="DateTimeZone">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q24:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dateField" nillable="true" type="xs:string" />
+      <xs:element name="offsetField" nillable="true" type="xs:string" />
+      <xs:element name="timeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateTimeZone" nillable="true" type="tns:DateTimeZone" />
+  <xs:complexType name="MsgContextType">
+    <xs:sequence>
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q25:PropertyChangedEventHandler" />
+      <xs:element name="extensionField" nillable="true" type="tns:ArrayOfExtension" />
+      <xs:element name="msgCorrelationIDField" nillable="true" type="xs:string" />
+      <xs:element name="msgDestinationField" nillable="true" type="xs:string" />
+      <xs:element name="msgPriorityField" nillable="true" type="xs:string" />
+      <xs:element name="msgSolutionField" nillable="true" type="xs:string" />
+      <xs:element name="msgSourceField" nillable="true" type="xs:string" />
+      <xs:element name="msgTimestampField" type="xs:dateTime" />
+      <xs:element name="msgTimestampFieldSpecified" type="xs:boolean" />
+      <xs:element name="msgTransactionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MsgContextType" nillable="true" type="tns:MsgContextType" />
+  <xs:complexType name="ArrayOfExtension">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Extension" nillable="true" type="tns:Extension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtension" nillable="true" type="tns:ArrayOfExtension" />
+  <xs:complexType name="Extension">
+    <xs:sequence>
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q26:PropertyChangedEventHandler" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Extension" nillable="true" type="tns:Extension" />
+  <xs:complexType name="getESSObservationResponse">
+    <xs:sequence>
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q27:PropertyChangedEventHandler" />
+      <xs:element name="eSSObservationReportMsgField" nillable="true" type="tns:eSSObservationReportMsg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getESSObservationResponse" nillable="true" type="tns:getESSObservationResponse" />
+  <xs:complexType name="eSSObservationReportMsg">
+    <xs:sequence>
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q28:PropertyChangedEventHandler" />
+      <xs:element name="essobservationreportitemField" nillable="true" type="tns:ArrayOfESSObservationReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="eSSObservationReportMsg" nillable="true" type="tns:eSSObservationReportMsg" />
+  <xs:complexType name="ArrayOfESSObservationReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ESSObservationReport" nillable="true" type="tns:ESSObservationReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfESSObservationReport" nillable="true" type="tns:ArrayOfESSObservationReport" />
+  <xs:complexType name="ESSObservationReport">
+    <xs:sequence>
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q29:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="esssensorlistField" nillable="true" type="tns:ESSObservationReportEsssensorlist" />
+      <xs:element name="organizationinformationField" nillable="true" type="tns:OrganizationInformation" />
+      <xs:element name="restrictionsField" nillable="true" type="tns:Restrictions" />
+      <xs:element name="stationidField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ESSObservationReport" nillable="true" type="tns:ESSObservationReport" />
+  <xs:complexType name="ESSObservationReportEsssensorlist">
+    <xs:sequence>
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q30:PropertyChangedEventHandler" />
+      <xs:element name="esssensorField" nillable="true" type="tns:ArrayOfESSObservationReportDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ESSObservationReportEsssensorlist" nillable="true" type="tns:ESSObservationReportEsssensorlist" />
+  <xs:complexType name="ArrayOfESSObservationReportDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ESSObservationReportDetail" nillable="true" type="tns:ESSObservationReportDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfESSObservationReportDetail" nillable="true" type="tns:ArrayOfESSObservationReportDetail" />
+  <xs:complexType name="ESSObservationReportDetail">
+    <xs:sequence>
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q31:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="essobservationtimestampField" nillable="true" type="tns:DateTimeZone" />
+      <xs:element name="essobservationtypeField" nillable="true" type="tns:ESSObservationType" />
+      <xs:element name="esssensoridField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ESSObservationReportDetail" nillable="true" type="tns:ESSObservationReportDetail" />
+  <xs:complexType name="ESSObservationType">
+    <xs:sequence>
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q32:PropertyChangedEventHandler" />
+      <xs:element name="itemElementNameField" type="tns:ItemChoiceType1" />
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ESSObservationType" nillable="true" type="tns:ESSObservationType" />
+  <xs:simpleType name="ItemChoiceType1">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item" />
+      <xs:enumeration value="pavementdata" />
+      <xs:enumeration value="subsurfacedata" />
+      <xs:enumeration value="weatherdata" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType1" nillable="true" type="tns:ItemChoiceType1" />
+  <xs:complexType name="Restrictions">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System.ComponentModel" name="PropertyChanged" nillable="true" type="q33:PropertyChangedEventHandler" />
+      <xs:element name="anyField" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="organizationinformationforwardingrestrictionsField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Restrictions" nillable="true" type="tns:Restrictions" />
+</xs:schema>

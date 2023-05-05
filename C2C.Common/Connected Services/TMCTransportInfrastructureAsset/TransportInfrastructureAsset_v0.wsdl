@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:header="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" xmlns:tns="http://transport.nsw.gov.au/tmc/services/entity/transport_network/TransportInfrastructureAsset_v0" xmlns:v0p1="http://transport.nsw.gov.au/tmc/services/entity/transport_network/TransportInfrastructureAsset_v0p1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="TransportInfrastructureAsset_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/transport_network/TransportInfrastructureAsset_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Transport Infrastructure Asset v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/transport_network/TransportInfrastructureAsset_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xsd:import schemaLocation="SOAPHeader_v1.xsd" namespace="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" />
+      <xsd:element name="publishPlanInventory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planInventoryMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="publishPlanInventoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="c2c:c2cMessageReceipt" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="publishPlanInventory">
+    <wsdl:part name="message" element="v0p1:publishPlanInventory" />
+    <wsdl:part name="header" element="header:MsgContext" />
+  </wsdl:message>
+  <wsdl:message name="publishPlanInventoryResponse">
+    <wsdl:part name="message" element="v0p1:publishPlanInventoryResponse" />
+    <wsdl:part name="header" element="header:MsgContext" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:portType name="TransportInfrastructureAssetPortType_v0p1">
+    <wsdl:operation name="publishPlanInventory">
+      <wsdl:input message="tns:publishPlanInventory" />
+      <wsdl:output message="tns:publishPlanInventoryResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransportInfrastructureAssetSOAPBinding_v0p1" type="tns:TransportInfrastructureAssetPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="publishPlanInventory">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishPlanInventory" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:publishPlanInventory" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:publishPlanInventoryResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransportInfrastructureAsset_v0p1">
+    <wsdl:port name="TransportInfrastructureAssetSOAP" binding="tns:TransportInfrastructureAssetSOAPBinding_v0p1">
+      <soap:address location="http://www.example.org/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

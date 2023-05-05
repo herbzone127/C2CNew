@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:header="http://transport.nsw.gov.au/rms" xmlns:tns="http://transport.nsw.gov.au/mm/services/entity/devices/Device_v0" xmlns:v0p1="http://transport.nsw.gov.au/mm/services/entity/devices/Device_v0p1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Device_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/mm/services/entity/devices/Device_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Device Service v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/mm/services/entity/devices/Device_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xsd:import schemaLocation="msgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xsd:element name="getDMSStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDMSStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:dMSStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDetectorStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDetectorStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:detectorStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLCSStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getLCSStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:lCSStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGateStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGateStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:gateStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOHDStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOHDStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:oHDStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getESSStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getESSStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:eSSStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRampMeterStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getRampMeterStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:rampMeterStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSignalStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSignalStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:intersectionSignalStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getDMSStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDMSStatus" />
+  </wsdl:message>
+  <wsdl:message name="getDMSStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDMSStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetectorStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDetectorStatus" />
+  </wsdl:message>
+  <wsdl:message name="getDetectorStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getDetectorStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLCSStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getLCSStatus" />
+  </wsdl:message>
+  <wsdl:message name="getLCSStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getLCSStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGateStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getGateStatus" />
+  </wsdl:message>
+  <wsdl:message name="getGateStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getGateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOHDStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getOHDStatus" />
+  </wsdl:message>
+  <wsdl:message name="getOHDStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getOHDStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getESSStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getESSStatus" />
+  </wsdl:message>
+  <wsdl:message name="getESSStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getESSStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRampMeterStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getRampMeterStatus" />
+  </wsdl:message>
+  <wsdl:message name="getRampMeterStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getRampMeterStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSignalStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getSignalStatus" />
+  </wsdl:message>
+  <wsdl:message name="getSignalStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getSignalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:portType name="DevicePortType_v0p1">
+    <wsdl:operation name="getDMSStatus">
+      <wsdl:input message="tns:getDMSStatus" />
+      <wsdl:output message="tns:getDMSStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetectorStatus">
+      <wsdl:input message="tns:getDetectorStatus" />
+      <wsdl:output message="tns:getDetectorStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getLCSStatus">
+      <wsdl:input message="tns:getLCSStatus" />
+      <wsdl:output message="tns:getLCSStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getGateStatus">
+      <wsdl:input message="tns:getGateStatus" />
+      <wsdl:output message="tns:getGateStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getOHDStatus">
+      <wsdl:input message="tns:getOHDStatus" />
+      <wsdl:output message="tns:getOHDStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getESSStatus">
+      <wsdl:input message="tns:getESSStatus" />
+      <wsdl:output message="tns:getESSStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getRampMeterStatus">
+      <wsdl:input message="tns:getRampMeterStatus" />
+      <wsdl:output message="tns:getRampMeterStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getSignalStatus">
+      <wsdl:input message="tns:getSignalStatus" />
+      <wsdl:output message="tns:getSignalStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DeviceSOAPBinding_v0p1" type="tns:DevicePortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDMSStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getDMSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getDMSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDetectorStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getDetectorStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getDetectorStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLCSStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getLCSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getLCSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGateStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getGateStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getGateStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOHDStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getOHDStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getOHDStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getESSStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getESSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getESSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRampMeterStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getRampMeterStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getRampMeterStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getSignalStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getSignalStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getSignalStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Device_v0p1">
+    <wsdl:port name="DeviceSOAP" binding="tns:DeviceSOAPBinding_v0p1">
+      <soap:address location="http://www.example.org/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

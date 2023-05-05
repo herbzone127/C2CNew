@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0" xmlns:v0p1="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Transport_Device_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+			Device Service  -  Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="SOAPHeader_v1.xsd" namespace="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" />
+      <xs:element name="publishDetectorStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:detectorStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDetectorStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDMSStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:dMSStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDMSStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="publishDetectorStatus">
+    <part name="message" element="v0p1:publishDetectorStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDetectorStatusResponse">
+    <part name="message" element="v0p1:publishDetectorStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDMSStatus">
+    <part name="message" element="v0p1:publishDMSStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDMSStatusResponse">
+    <part name="message" element="v0p1:publishDMSStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <portType name="DevicePortType_v0p1">
+    <operation name="publishDetectorStatus">
+      <documentation>
+        <objectClass>Detector</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ417</requirement>
+      </documentation>
+      <input message="tns:publishDetectorStatus" />
+      <output message="tns:publishDetectorStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishDMSStatus">
+      <documentation>
+        <objectClass>DMS</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ32</requirement>
+      </documentation>
+      <input message="tns:publishDMSStatus" />
+      <output message="tns:publishDMSStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="DeviceSoapHttpBinding_v0p1" type="tns:DevicePortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="publishDetectorStatus">
+      <soap:operation soapAction="urn:Transport:SOAP:Device:Service#publishDetectorStatus" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishDetectorStatus" part="header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishDetectorStatusResponse" part="header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishDMSStatus">
+      <soap:operation soapAction="urn:Transport:SOAP:Device:Service#publishDMSStatus" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishDMSStatus" part="header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishDMSStatusResponse" part="header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Device_v0p1">
+    <port name="DeviceSoapHttpPort" binding="tns:DeviceSoapHttpBinding_v0p1">
+      <soap:address location="http://tmdd.owner.center.com/c2cxml/" />
+    </port>
+  </service>
+</definitions>

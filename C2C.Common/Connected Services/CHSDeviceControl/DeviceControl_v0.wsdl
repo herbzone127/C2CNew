@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:header="http://transport.nsw.gov.au/rms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://transport.nsw.gov.au/rms/services/task/devices/DeviceControl_v0" xmlns:v0p1="http://transport.nsw.gov.au/rms/services/entity/devices/DeviceControl_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="DeviceControl_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/rms/services/task/devices/DeviceControl_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Device Control Service v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/rms/services/entity/devices/DeviceControl_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="MsgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xsd:element name="requestDMSControl">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:dMSControlRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestDMSControlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceControlResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestLCSControl">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:lCSControlRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestLCSControlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceControlResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestRampMeterControl">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:rampMeterControlRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestRampMeterControlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceControlResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestSignalControl">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:intersectionSignalControlRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestSignalControlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:intersectionSignalControlResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestPlanActivation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planActivationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="requestPlanActivationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planActivationResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDMSPriorityQueue">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:devicePriorityQueueRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDMSPriorityQueueResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:dMSPriorityQueueMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelDeviceControlRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceCancelControlRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelDeviceControlRequestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:deviceControlResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelPlanActivationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planCancelActivationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelPlanActivationRequestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planActivationResponseMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="requestDMSControl">
+    <wsdl:part name="message" element="v0p1:requestDMSControl" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestDMSControlResponse">
+    <wsdl:part name="message" element="v0p1:requestDMSControlResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestLCSControl">
+    <wsdl:part name="message" element="v0p1:requestLCSControl" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestLCSControlResponse">
+    <wsdl:part name="message" element="v0p1:requestLCSControlResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestRampMeterControl">
+    <wsdl:part name="message" element="v0p1:requestRampMeterControl" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestRampMeterControlResponse">
+    <wsdl:part name="message" element="v0p1:requestRampMeterControlResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestSignalControl">
+    <wsdl:part name="message" element="v0p1:requestSignalControl" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestSignalControlResponse">
+    <wsdl:part name="message" element="v0p1:requestSignalControlResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestPlanActivation">
+    <wsdl:part name="message" element="v0p1:requestPlanActivation" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="requestPlanActivationResponse">
+    <wsdl:part name="message" element="v0p1:requestPlanActivationResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="getDMSPriorityQueue">
+    <wsdl:part name="message" element="v0p1:getDMSPriorityQueue" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="getDMSPriorityQueueResponse">
+    <wsdl:part name="message" element="v0p1:getDMSPriorityQueueResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="cancelDeviceControlRequest">
+    <wsdl:part name="message" element="v0p1:cancelDeviceControlRequest" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="cancelDeviceControlRequestResponse">
+    <wsdl:part name="message" element="v0p1:cancelDeviceControlRequestResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="cancelPlanActivationRequest">
+    <wsdl:part name="message" element="v0p1:cancelPlanActivationRequest" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="cancelPlanActivationRequestResponse">
+    <wsdl:part name="message" element="v0p1:cancelPlanActivationRequestResponse" />
+    <wsdl:part name="rms_header" element="header:msgContext" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:portType name="DeviceControlPortType_v0p1">
+    <wsdl:operation name="requestDMSControl">
+      <wsdl:input message="tns:requestDMSControl" />
+      <wsdl:output message="tns:requestDMSControlResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="requestLCSControl">
+      <wsdl:input message="tns:requestLCSControl" />
+      <wsdl:output message="tns:requestLCSControlResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="requestRampMeterControl">
+      <wsdl:input message="tns:requestRampMeterControl" />
+      <wsdl:output message="tns:requestRampMeterControlResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="requestSignalControl">
+      <wsdl:input message="tns:requestSignalControl" />
+      <wsdl:output message="tns:requestSignalControlResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="requestPlanActivation">
+      <wsdl:input message="tns:requestPlanActivation" />
+      <wsdl:output message="tns:requestPlanActivationResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="getDMSPriorityQueue">
+      <wsdl:input message="tns:getDMSPriorityQueue" />
+      <wsdl:output message="tns:getDMSPriorityQueueResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelDeviceControlRequest">
+      <wsdl:input message="tns:cancelDeviceControlRequest" />
+      <wsdl:output message="tns:cancelDeviceControlRequestResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelPlanActivationRequest">
+      <wsdl:input message="tns:cancelPlanActivationRequest" />
+      <wsdl:output message="tns:cancelPlanActivationRequestResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DeviceControlSOAPBinding_v0p1" type="tns:DeviceControlPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="requestDMSControl">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestDMSControl" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestDMSControlResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestLCSControl">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestLCSControl" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestLCSControlResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestRampMeterControl">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestRampMeterControl" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestRampMeterControlResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestSignalControl">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestSignalControl" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestSignalControlResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="requestPlanActivation">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestPlanActivation" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:requestPlanActivationResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDMSPriorityQueue">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getDMSPriorityQueue" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getDMSPriorityQueueResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelDeviceControlRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:cancelDeviceControlRequest" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:cancelDeviceControlRequestResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPlanActivationRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:cancelPlanActivationRequest" part="rms_header" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:cancelPlanActivationRequestResponse" part="rms_header" use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeviceControl_v0p1">
+    <wsdl:port name="DeviceControlSOAP" binding="tns:DeviceControlSOAPBinding_v0p1">
+      <soap:address location="http://tmdd.owner.center.com/c2cxml/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

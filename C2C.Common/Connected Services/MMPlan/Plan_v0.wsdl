@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:header="http://transport.nsw.gov.au/rms" xmlns:tns="http://transport.nsw.gov.au/mm/services/entity/traffic_management/Plan_v0" xmlns:v0p1="http://transport.nsw.gov.au/mm/services/entity/traffic_management/Plan_v0p1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Plan_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/mm/services/entity/traffic_management/Plan_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Plan Service v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/mm/services/entity/traffic_management/Plan_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xsd:import schemaLocation="msgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xsd:element name="getPlanStatus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planInformationRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getPlanStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:planStatusMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPlanStatus">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getPlanStatus" />
+  </wsdl:message>
+  <wsdl:message name="getPlanStatusResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getPlanStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:portType name="PlanPortType_v0p1">
+    <wsdl:operation name="getPlanStatus">
+      <wsdl:input message="tns:getPlanStatus" />
+      <wsdl:output message="tns:getPlanStatusResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PlanSOAPBinding_v0p1" type="tns:PlanPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPlanStatus">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getPlanStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getPlanStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Plan_v0p1">
+    <wsdl:port name="PlanSoapPort" binding="tns:PlanSOAPBinding_v0p1">
+      <soap:address location="http://localhost:9080/CHS_MTW_Plan-mediationWeb/sca/CHS_MTW_PlanExport" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

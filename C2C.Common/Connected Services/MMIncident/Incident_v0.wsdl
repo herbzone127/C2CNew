@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:header="http://transport.nsw.gov.au/rms" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://transport.nsw.gov.au/mm/services/entity/incident/Incident_v0" xmlns:v0p1="http://transport.nsw.gov.au/mm/services/entity/incident/Incident_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Incident_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/mm/services/entity/incident/Incident_v0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Incident Service v0p1
+	</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://transport.nsw.gov.au/mm/services/entity/incident/Incident_v0p1">
+      <xsd:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xsd:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xsd:import schemaLocation="msgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xsd:element name="getIncidentInformation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:eventRequestMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getIncidentInformationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:fEUMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="errorReport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:errorReportMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="publishActionLogInformation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tmdd:actionLogMsg" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="publishActionLogInformationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="c2c:c2cMessageReceipt" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getIncidentInformation">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getIncidentInformation" />
+  </wsdl:message>
+  <wsdl:message name="getIncidentInformationResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:getIncidentInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="errorReport">
+    <wsdl:part name="message" element="v0p1:errorReport" />
+  </wsdl:message>
+  <wsdl:message name="publishActionLogInformation">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:publishActionLogInformation" />
+  </wsdl:message>
+  <wsdl:message name="publishActionLogInformationResponse">
+    <wsdl:part name="header" element="header:msgContext" />
+    <wsdl:part name="message" element="v0p1:publishActionLogInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IncidentPortType_v0p1">
+    <wsdl:operation name="getIncidentInformation">
+      <wsdl:input message="tns:getIncidentInformation" />
+      <wsdl:output message="tns:getIncidentInformationResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+    <wsdl:operation name="publishActionLogInformation">
+      <wsdl:input message="tns:publishActionLogInformation" />
+      <wsdl:output message="tns:publishActionLogInformationResponse" />
+      <wsdl:fault name="errorReport" message="tns:errorReport" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IncidentSOAPBinding_v0p1" type="tns:IncidentPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIncidentInformation">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:getIncidentInformation" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:getIncidentInformationResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishActionLogInformation">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:publishActionLogInformation" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:publishActionLogInformationResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </wsdl:output>
+      <wsdl:fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Incident_v0p1">
+    <wsdl:port name="IncidentSOAP" binding="tns:IncidentSOAPBinding_v0p1">
+      <soap:address location="http://www.example.org/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

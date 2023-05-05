@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.LRMS-Local-02-00-00" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.LRMS-Local-02-00-00" version="DRAFT" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Exported on: 12:31:45 PM Tuesday, November 14, 2006 From file: lrms_adopted-2-0-0.ITS [By: Mini-Edit Rev 2.1.442] 
+   </xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="AdminAreaGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Grid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GridProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string" />
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GridPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GridPointPair">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GridPointSequence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HorizontalDatum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LRMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NodeAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="yourName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PointType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExtendedPointType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VerticalDatum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="insert-local-values-here" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

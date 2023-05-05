@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/rms" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/rms/services/entity/traffic_management/Plan_v0" xmlns:v0p1="http://transport.nsw.gov.au/rms/services/entity/traffic_management/Plan_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Plan_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/rms/services/entity/traffic_management/Plan_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+			Plan Service - Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/rms/services/entity/traffic_management/Plan_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="MsgContext.xsd" namespace="http://transport.nsw.gov.au/rms" />
+      <xs:element name="publishPlanStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:planStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishPlanStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPlanStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:planInformationRequestMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPlanStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:planStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="publishPlanStatus">
+    <part name="message" element="v0p1:publishPlanStatus" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="publishPlanStatusResponse">
+    <part name="message" element="v0p1:publishPlanStatusResponse" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="getPlanStatus">
+    <part name="message" element="v0p1:getPlanStatus" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="getPlanStatusResponse">
+    <part name="message" element="v0p1:getPlanStatusResponse" />
+    <part name="rms_header" element="header:msgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <portType name="PlanPortType_v0p1">
+    <operation name="publishPlanStatus">
+      <documentation>
+        <objectClass>ESS</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ1214</requirement>
+      </documentation>
+      <input message="tns:publishPlanStatus" />
+      <output message="tns:publishPlanStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="getPlanStatus">
+      <input message="tns:getPlanStatus" />
+      <output message="tns:getPlanStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="PlanSoapHttpBinding_v0p1" type="tns:PlanPortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="publishPlanStatus">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishPlanStatus" part="rms_header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:publishPlanStatusResponse" part="rms_header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getPlanStatus">
+      <soap:operation soapAction="" style="document" />
+      <input>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getPlanStatus" part="rms_header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" parts="message" />
+        <soap:header message="tns:getPlanStatusResponse" part="rms_header" use="literal" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Plan_v0p1">
+    <port name="PlanSoapHttpPort" binding="tns:PlanSoapHttpBinding_v0p1">
+      <soap:address location="http://localhost:9080/CHS_MTW_Plan-mediationWeb/sca/CHS_MTW_PlanExport" />
+    </port>
+  </service>
+</definitions>

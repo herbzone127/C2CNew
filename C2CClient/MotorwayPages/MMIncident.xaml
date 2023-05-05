@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="C2CClient.MotorwayPages.MMIncident"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:C2CClient.MotorwayPages"
+             xmlns:vm="clr-namespace:C2CClient.MMViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:MMIncidentViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+                 Margin="50,0,0,0"
+                BorderThickness="0px"
+                HorizontalAlignment="Left" Command ="{Binding BackCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+            AncestorType={x:Type local:MMIncident}}}"  Grid.Column="0" Height="35px" Width="50px" Background="Transparent">
+            <Image Source="C:\Users\AhsanZaman\source\repos\AlexanderCO\WPFApplication\C2CServer\C2C.Common\Images\backButton.png"></Image>
+        </Button>
+        <Button Grid.Row="1" Command ="{Binding MMGetIncidentInformationCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+            AncestorType={x:Type local:MMIncident}}}"
+                  Background="DarkBlue" FontWeight="Bold" Foreground="White"
+                Grid.Column="0" Height="50px" Width="150px" HorizontalAlignment="Center">Get IncidentInformation</Button>
+        <Button Grid.Row="1" 
+                Command ="{Binding MMActionLogInfoCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+            AncestorType={x:Type local:MMIncident}}}" Background="DarkBlue" FontWeight="Bold" Foreground="White"
+                Grid.Column="1" Height="50px" Width="150px" HorizontalAlignment="Center">Publish Action Logic Info</Button>
+
+    </Grid>
+</UserControl>

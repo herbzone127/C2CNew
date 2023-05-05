@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:header="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" xmlns:c2c="http://www.ntcip.org/c2c-message-administration" xmlns:tns="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0" xmlns:v0p1="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" xmlns:tmdd="http://www.tmdd.org/3/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Device_v0.wsdl" targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation>
+			Device Service  -  Version 0.1
+	</documentation>
+  <types>
+    <xs:schema targetNamespace="http://transport.nsw.gov.au/tmc/services/entity/devices/Device_v0p1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import schemaLocation="../../xsd/tmdd/TMDD.xsd" namespace="http://www.tmdd.org/3/messages" />
+      <xs:import schemaLocation="../../xsd/tmdd/C2C.xsd" namespace="http://www.ntcip.org/c2c-message-administration" />
+      <xs:import schemaLocation="SOAPHeader_v1.xsd" namespace="http://transport.nsw.gov.au/tmc/schemas/software_component/SOAPHeader/v1" />
+      <xs:element name="publishDetectorStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:detectorStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDetectorStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDMSStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:dMSStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishDMSStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishLCSStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:lCSStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishLCSStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishGateStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:gateStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishGateStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishOHDStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:oHDStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishOHDStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishESSStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:eSSStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishESSStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishRampMeterStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:rampMeterStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishRampMeterStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishSignalStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:intersectionSignalStatusMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="publishSignalStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="c2c:c2cMessageReceipt" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="errorReport">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tmdd:errorReportMsg" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="publishDetectorStatus">
+    <part name="message" element="v0p1:publishDetectorStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDetectorStatusResponse">
+    <part name="message" element="v0p1:publishDetectorStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDMSStatus">
+    <part name="message" element="v0p1:publishDMSStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishDMSStatusResponse">
+    <part name="message" element="v0p1:publishDMSStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishLCSStatus">
+    <part name="message" element="v0p1:publishLCSStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishLCSStatusResponse">
+    <part name="message" element="v0p1:publishLCSStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishGateStatus">
+    <part name="message" element="v0p1:publishGateStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishGateStatusResponse">
+    <part name="message" element="v0p1:publishGateStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishOHDStatus">
+    <part name="message" element="v0p1:publishOHDStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishOHDStatusResponse">
+    <part name="message" element="v0p1:publishOHDStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishESSStatus">
+    <part name="message" element="v0p1:publishESSStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishESSStatusResponse">
+    <part name="message" element="v0p1:publishESSStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishRampMeterStatus">
+    <part name="message" element="v0p1:publishRampMeterStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishRampMeterStatusResponse">
+    <part name="message" element="v0p1:publishRampMeterStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishSignalStatus">
+    <part name="message" element="v0p1:publishSignalStatus" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="publishSignalStatusResponse">
+    <part name="message" element="v0p1:publishSignalStatusResponse" />
+    <part name="header" element="header:MsgContext" />
+  </message>
+  <message name="errorReport">
+    <part name="message" element="v0p1:errorReport" />
+  </message>
+  <portType name="DevicePortType_v0p1">
+    <operation name="publishDetectorStatus">
+      <documentation>
+        <objectClass>Detector</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ417</requirement>
+      </documentation>
+      <input message="tns:publishDetectorStatus" />
+      <output message="tns:publishDetectorStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishDMSStatus">
+      <documentation>
+        <objectClass>DMS</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ32</requirement>
+      </documentation>
+      <input message="tns:publishDMSStatus" />
+      <output message="tns:publishDMSStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishLCSStatus">
+      <documentation>
+        <objectClass>LCS</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ892</requirement>
+      </documentation>
+      <input message="tns:publishLCSStatus" />
+      <output message="tns:publishLCSStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishGateStatus">
+      <documentation>
+        <objectClass>Gate</objectClass>
+        <msgPattern>Pub</msgPattern>
+      </documentation>
+      <input message="tns:publishGateStatus" />
+      <output message="tns:publishGateStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishOHDStatus">
+      <documentation>
+        <objectClass>OHD</objectClass>
+        <msgPattern>Pub</msgPattern>
+      </documentation>
+      <input message="tns:publishOHDStatus" />
+      <output message="tns:publishOHDStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishESSStatus">
+      <documentation>
+        <objectClass>ESS</objectClass>
+        <msgPattern>Pub</msgPattern>
+        <requirement>REQ664</requirement>
+      </documentation>
+      <input message="tns:publishESSStatus" />
+      <output message="tns:publishESSStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishRampMeterStatus">
+      <documentation>
+        <objectClass>RampMeter</objectClass>
+        <msgPattern>Pub</msgPattern>
+      </documentation>
+      <input message="tns:publishRampMeterStatus" />
+      <output message="tns:publishRampMeterStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+    <operation name="publishSignalStatus">
+      <documentation>
+        <objectClass>Signal</objectClass>
+        <msgPattern>Pub</msgPattern>
+      </documentation>
+      <input message="tns:publishSignalStatus" />
+      <output message="tns:publishSignalStatusResponse" />
+      <fault name="errorReport" message="tns:errorReport" />
+    </operation>
+  </portType>
+  <binding name="DeviceSoapHttpBinding_v0p1" type="tns:DevicePortType_v0p1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="publishDetectorStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishDetectorStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishDetectorStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishDetectorStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishDMSStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishDMSStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishDMSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishDMSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishLCSStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishLCSStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishLCSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishLCSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishGateStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishGateStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishGateStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishGateStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishOHDStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishOHDStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishOHDStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishOHDStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishESSStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishESSStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishESSStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishESSStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishRampMeterStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishRampMeterStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishRampMeterStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishRampMeterStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+    <operation name="publishSignalStatus">
+      <soap:operation soapAction="urn:PegaRULES:SOAP:Device:Services#PublishSignalStatus" style="document" />
+      <input>
+        <soap:header message="tns:publishSignalStatus" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </input>
+      <output>
+        <soap:header message="tns:publishSignalStatusResponse" part="header" use="literal" />
+        <soap:body use="literal" parts="message" />
+      </output>
+      <fault name="errorReport">
+        <soap:fault use="literal" name="errorReport" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Device_v0p1">
+    <port name="DeviceSoapHttpPort" binding="tns:DeviceSoapHttpBinding_v0p1">
+      <soap:address location="http://tmdd.owner.center.com/c2cxml/" />
+    </port>
+  </service>
+</definitions>

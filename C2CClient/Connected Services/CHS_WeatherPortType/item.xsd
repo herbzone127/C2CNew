@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://transport.nsw.gov.au/rms" elementFormDefault="qualified" targetNamespace="http://transport.nsw.gov.au/rms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" name="msgContext" nillable="true" type="q1:MsgContextType" />
+</xs:schema>

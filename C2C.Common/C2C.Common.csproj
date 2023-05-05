@@ -1,0 +1,2105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A88F7E65-B0A3-4A51-94F5-F573387359A1}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>C2C.Common</RootNamespace>
+    <AssemblyName>C2C.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommunityToolkit.Mvvm, Version=8.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommunityToolkit.Mvvm.8.1.0\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CentralNodePage\CHSIncident\CHSIncident.xaml.cs">
+      <DependentUpon>CHSIncident.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CentralNodePage\CHSWeather\CHSWeather.xaml.cs">
+      <DependentUpon>CHSWeather.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CentralNodePage\CHS_Device\CHSDevice.xaml.cs">
+      <DependentUpon>CHSDevice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CHSViewModels\CHSDeviceViewModel.cs" />
+    <Compile Include="CHSViewModels\CHSIncidentViewModel.cs" />
+    <Compile Include="CHSViewModels\CHSWeatherViewModels.cs" />
+    <Compile Include="ViewModels\CHSViewModel.cs" />
+    <Compile Include="ViewModels\MainControlViewModel.cs" />
+    <Compile Include="ViewModels\MMViewModel.cs" />
+    <Compile Include="ViewModels\TMCViewModel.cs" />
+    <Page Include="CentralNodePage\CentralNodePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CentralNodePage\CHSIncident\CHSIncident.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CentralNodePage\CHSWeather\CHSWeather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CentralNodePage\CHS_Device\CHSDevice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MotorwayPage\MM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TMCPage\TMC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="CentralNodePage\CentralNodePage.xaml.cs">
+      <DependentUpon>CentralNodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSDeviceControl\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSDevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSIncident\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSplan\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSRoute\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSSensor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSTrafficSubCentre\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSTransportInfrastructreAsset\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CHSWeather\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMDeviceControl\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMDevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMIncident\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMPlan\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMRoute\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMTraficSubCentre\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMTransportInfrastuctureAsset\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MMWeather\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCDevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCIncident\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCplan\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCRoute\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCSensor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCTrafficSubCentre\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCWeather\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TMCTransportInfrastructureAsset\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TransportDevice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="MotorwayPage\MM.xaml.cs">
+      <DependentUpon>MM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TMCPage\TMC.xaml.cs">
+      <DependentUpon>TMC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainControl.xaml.cs">
+      <DependentUpon>MainControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Connected Services\CHSDeviceControl\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.cancelDeviceControlRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.cancelDeviceControlRequestResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.cancelPlanActivationRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.cancelPlanActivationRequestResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.getDMSPriorityQueueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.getDMSPriorityQueueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestDMSControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestDMSControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestLCSControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestLCSControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestPlanActivationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestPlanActivationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestRampMeterControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestRampMeterControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestSignalControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\C2C.Common.CHSDeviceControl.requestSignalControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\DeviceControl_v0.wsdl" />
+    <None Include="Connected Services\CHSDeviceControl\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDeviceControl\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getDetectorStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getDetectorStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getDMSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getDMSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getESSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getESSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getGateStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getGateStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getLCSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getLCSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getOHDStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getOHDStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getRampMeterStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getRampMeterStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getSignalStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.getSignalStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishDetectorStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishDetectorStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishDMSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishDMSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishESSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishESSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishGateStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishGateStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishLCSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishLCSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishOHDStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishOHDStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishRampMeterStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishRampMeterStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishSignalStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\C2C.Common.CHSDevice.publishSignalStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSDevice\Device_v0.wsdl" />
+    <None Include="Connected Services\CHSDevice\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSDevice\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.getIncidentInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.getIncidentInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.publishActionLogInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.publishActionLogInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.publishIncidentInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\C2C.Common.CHSIncident.publishIncidentInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSIncident\Incident_v0.wsdl" />
+    <None Include="Connected Services\CHSIncident\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSIncident\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.Common.CHSplan.getPlanStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.Common.CHSplan.getPlanStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.Common.CHSplan.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.Common.CHSplan.publishPlanStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSplan\C2C.Common.CHSplan.publishPlanStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSplan\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\Plan_v0.wsdl" />
+    <None Include="Connected Services\CHSplan\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSplan\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.Common.CHSRoute.getRouteStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.Common.CHSRoute.getRouteStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.Common.CHSRoute.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.Common.CHSRoute.publishRouteStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSRoute\C2C.Common.CHSRoute.publishRouteStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSRoute\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\Route_v0.wsdl" />
+    <None Include="Connected Services\CHSRoute\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSRoute\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\C2C.Common.CHSSensor.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSSensor\C2C.Common.CHSSensor.publishDetectorDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSSensor\C2C.Common.CHSSensor.publishDetectorDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSSensor\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\Sensor_v0.wsdl" />
+    <None Include="Connected Services\CHSSensor\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSSensor\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.Common.CHSTrafficSubCentre.getCentreActiveInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.Common.CHSTrafficSubCentre.getCentreActiveInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.Common.CHSTrafficSubCentre.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.Common.CHSTrafficSubCentre.publishCentreActiveInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\C2C.Common.CHSTrafficSubCentre.publishCentreActiveInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTrafficSubCentre\TrafficSubCentre_v0.wsdl" />
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getDetectorInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getDetectorInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getDMSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getDMSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getESSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getESSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getGateInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getGateInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getLCSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getLCSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getOHDInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getOHDInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getPlanInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getPlanInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getRampMeterInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getRampMeterInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getSignalInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.getSignalInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.publishPlanInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\C2C.Common.CHSTransportInfrastructreAsset.publishPlanInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\TransportInfrastructureAsset_v0.wsdl" />
+    <None Include="Connected Services\CHSWeather\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\C2C.Common.CHSWeather.getESSObservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSWeather\C2C.Common.CHSWeather.getESSObservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSWeather\C2C.Common.CHSWeather.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSWeather\C2C.Common.CHSWeather.publishESSObservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSWeather\C2C.Common.CHSWeather.publishESSObservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CHSWeather\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CHSWeather\Weather_v0.wsdl" />
+    <None Include="Connected Services\MMDeviceControl\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.cancelDeviceControlRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.cancelDeviceControlRequestResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.cancelPlanActivationRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.cancelPlanActivationRequestResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.getDMSPriorityQueueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.getDMSPriorityQueueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestDMSControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestDMSControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestLCSControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestLCSControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestPlanActivationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestPlanActivationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestRampMeterControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestRampMeterControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestSignalControlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\C2C.Common.MMDeviceControl.requestSignalControlResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\DeviceControl_v0.wsdl" />
+    <None Include="Connected Services\MMDeviceControl\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDeviceControl\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getDetectorStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getDetectorStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getDMSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getDMSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getESSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getESSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getGateStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getGateStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getLCSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getLCSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getOHDStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getOHDStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getRampMeterStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getRampMeterStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getSignalStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.getSignalStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\C2C.Common.MMDevice.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMDevice\Device_v0.wsdl" />
+    <None Include="Connected Services\MMDevice\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMDevice\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.Common.MMIncident.getIncidentInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.Common.MMIncident.getIncidentInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.Common.MMIncident.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.Common.MMIncident.publishActionLogInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMIncident\C2C.Common.MMIncident.publishActionLogInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMIncident\Incident_v0.wsdl" />
+    <None Include="Connected Services\MMIncident\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMIncident\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\C2C.Common.MMPlan.getPlanStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMPlan\C2C.Common.MMPlan.getPlanStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMPlan\C2C.Common.MMPlan.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMPlan\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\Plan_v0.wsdl" />
+    <None Include="Connected Services\MMPlan\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMPlan\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\C2C.Common.MMRoute.getRouteStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMRoute\C2C.Common.MMRoute.getRouteStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMRoute\C2C.Common.MMRoute.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMRoute\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\Route_v0.wsdl" />
+    <None Include="Connected Services\MMRoute\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMRoute\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\C2C.Common.MMTraficSubCentre.getCentreActiveInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\C2C.Common.MMTraficSubCentre.getCentreActiveInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\C2C.Common.MMTraficSubCentre.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTraficSubCentre\TrafficSubCentre_v0.wsdl" />
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getDetectorInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getDetectorInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getDMSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getDMSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getESSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getESSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getGateInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getGateInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getLCSInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getLCSInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getOHDInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getOHDInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getPlanInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getPlanInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getRampMeterInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getRampMeterInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getSignalInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.getSignalInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\C2C.Common.MMTransportInfrastuctureAsset.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\msgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\TransportInfrastructureAsset_v0.wsdl" />
+    <None Include="Connected Services\MMWeather\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\C2C.Common.MMWeather.getESSObservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMWeather\C2C.Common.MMWeather.getESSObservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMWeather\C2C.Common.MMWeather.MsgContextType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MMWeather\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\MsgContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MMWeather\Weather_v0.wsdl" />
+    <None Include="Connected Services\TMCDevice\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishDetectorStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishDetectorStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishDMSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishDMSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishESSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishESSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishGateStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishGateStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishLCSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishLCSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishOHDStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishOHDStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishRampMeterStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishRampMeterStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishSignalStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\C2C.Common.TMCDevice.publishSignalStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCDevice\Device_v0.wsdl" />
+    <None Include="Connected Services\TMCDevice\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCDevice\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.Common.TMCIncident.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.Common.TMCIncident.publishActionLogInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.Common.TMCIncident.publishActionLogInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.Common.TMCIncident.publishIncidentInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCIncident\C2C.Common.TMCIncident.publishIncidentInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCIncident\Incident_v0.wsdl" />
+    <None Include="Connected Services\TMCIncident\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCIncident\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\C2C.Common.TMCplan.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCplan\C2C.Common.TMCplan.publishPlanStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCplan\C2C.Common.TMCplan.publishPlanStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCplan\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\Plan_v0.wsdl" />
+    <None Include="Connected Services\TMCplan\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCplan\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\C2C.Common.TMCRoute.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCRoute\C2C.Common.TMCRoute.publishRouteStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCRoute\C2C.Common.TMCRoute.publishRouteStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCRoute\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\Route_v0.wsdl" />
+    <None Include="Connected Services\TMCRoute\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCRoute\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\C2C.Common.TMCSensor.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCSensor\C2C.Common.TMCSensor.publishDetectorDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCSensor\C2C.Common.TMCSensor.publishDetectorDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCSensor\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\Sensor_v0.wsdl" />
+    <None Include="Connected Services\TMCSensor\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCSensor\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\C2C.Common.TMCTrafficSubCentre.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\C2C.Common.TMCTrafficSubCentre.publishCentreActiveInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\C2C.Common.TMCTrafficSubCentre.publishCentreActiveInformationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTrafficSubCentre\TrafficSubCentre_v0.wsdl" />
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\C2C.Common.TMCTransportInfrastructureAsset.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\C2C.Common.TMCTransportInfrastructureAsset.publishPlanInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\C2C.Common.TMCTransportInfrastructureAsset.publishPlanInventoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCWeather\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\C2C.Common.TMCWeather.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCWeather\C2C.Common.TMCWeather.publishESSObservationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCWeather\C2C.Common.TMCWeather.publishESSObservationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TMCWeather\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCWeather\Weather_v0.wsdl" />
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\TransportInfrastructureAsset_v0.wsdl" />
+    <None Include="Connected Services\TransportDevice\C2C.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\C2C.Common.TransportDevice.MsgContextCType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TransportDevice\C2C.Common.TransportDevice.publishDetectorStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TransportDevice\C2C.Common.TransportDevice.publishDetectorStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TransportDevice\C2C.Common.TransportDevice.publishDMSStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TransportDevice\C2C.Common.TransportDevice.publishDMSStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\TransportDevice\ITIS-Adopted-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\ITIS-Local-03-00-02.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\LRMS-Adopted-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\LRMS-Local-02-00-00.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\NTCIP-References.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\SOAPHeader_v1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\TMDD-Extensions.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\TMDD-Local-12-05-01.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\TMDD.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TransportDevice\Transport_Device_v0.wsdl" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CHSDeviceControl\" />
+    <WCFMetadataStorage Include="Connected Services\CHSDevice\" />
+    <WCFMetadataStorage Include="Connected Services\CHSIncident\" />
+    <WCFMetadataStorage Include="Connected Services\CHSplan\" />
+    <WCFMetadataStorage Include="Connected Services\CHSRoute\" />
+    <WCFMetadataStorage Include="Connected Services\CHSSensor\" />
+    <WCFMetadataStorage Include="Connected Services\CHSTrafficSubCentre\" />
+    <WCFMetadataStorage Include="Connected Services\CHSTransportInfrastructreAsset\" />
+    <WCFMetadataStorage Include="Connected Services\CHSWeather\" />
+    <WCFMetadataStorage Include="Connected Services\MMDeviceControl\" />
+    <WCFMetadataStorage Include="Connected Services\MMDevice\" />
+    <WCFMetadataStorage Include="Connected Services\MMIncident\" />
+    <WCFMetadataStorage Include="Connected Services\MMPlan\" />
+    <WCFMetadataStorage Include="Connected Services\MMRoute\" />
+    <WCFMetadataStorage Include="Connected Services\MMTraficSubCentre\" />
+    <WCFMetadataStorage Include="Connected Services\MMTransportInfrastuctureAsset\" />
+    <WCFMetadataStorage Include="Connected Services\MMWeather\" />
+    <WCFMetadataStorage Include="Connected Services\TMCDevice\" />
+    <WCFMetadataStorage Include="Connected Services\TMCIncident\" />
+    <WCFMetadataStorage Include="Connected Services\TMCplan\" />
+    <WCFMetadataStorage Include="Connected Services\TMCRoute\" />
+    <WCFMetadataStorage Include="Connected Services\TMCSensor\" />
+    <WCFMetadataStorage Include="Connected Services\TMCTrafficSubCentre\" />
+    <WCFMetadataStorage Include="Connected Services\TMCWeather\" />
+    <WCFMetadataStorage Include="Connected Services\TMCTransportInfrastructureAsset\" />
+    <WCFMetadataStorage Include="Connected Services\TransportDevice\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDevice\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDevice\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDevice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDeviceControl\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDeviceControl\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSDeviceControl\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSIncident\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSIncident\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSIncident\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSplan\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSplan\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSplan\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSRoute\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSRoute\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSRoute\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSSensor\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSSensor\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSSensor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTrafficSubCentre\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTrafficSubCentre\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTrafficSubCentre\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSTransportInfrastructreAsset\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSWeather\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSWeather\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CHSWeather\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDevice\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDevice\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDevice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDeviceControl\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDeviceControl\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMDeviceControl\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMIncident\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMIncident\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMIncident\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMPlan\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMPlan\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMPlan\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMRoute\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMRoute\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMRoute\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTraficSubCentre\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTraficSubCentre\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTraficSubCentre\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMTransportInfrastuctureAsset\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMWeather\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMWeather\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MMWeather\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCDevice\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCDevice\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCDevice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCIncident\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCIncident\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCIncident\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCplan\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCplan\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCplan\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCRoute\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCRoute\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCRoute\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCSensor\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCSensor\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCSensor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTrafficSubCentre\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTrafficSubCentre\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTrafficSubCentre\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCTransportInfrastructureAsset\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCWeather\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCWeather\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TMCWeather\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TransportDevice\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TransportDevice\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TransportDevice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MotorwayPage\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\backButton.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets'))" />
+  </Target>
+</Project>

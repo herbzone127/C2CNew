@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://transport.nsw.gov.au/rms" targetNamespace="http://transport.nsw.gov.au/rms" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="msgContext" type="tns:MsgContextType" />
+  <xs:complexType name="MsgContextType">
+    <xs:sequence>
+      <xs:element name="msgSolution" type="tns:NonEmptyString" />
+      <xs:element name="msgCorrelationID" type="tns:NonEmptyString" />
+      <xs:element minOccurs="0" name="msgTransaction" type="tns:NonEmptyString" />
+      <xs:element minOccurs="0" name="msgSource" type="tns:NonEmptyString" />
+      <xs:element minOccurs="0" name="msgDestination" type="tns:NonEmptyString" />
+      <xs:element minOccurs="0" name="msgPriority" type="tns:MsgPriorityType" />
+      <xs:element minOccurs="0" name="msgTimestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="extension" type="tns:Extension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Extension">
+    <xs:sequence>
+      <xs:element name="name" type="tns:NonEmptyString" />
+      <xs:element name="value" type="tns:NonEmptyString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="50" />
+      <xs:pattern value=".*[^\s].*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MsgPriorityType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
