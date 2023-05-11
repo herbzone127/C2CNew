@@ -32,6 +32,14 @@ namespace C2CClient.MMViewModels
 
             //var getESSObservation = new C2CServer.MMWeather.WeatherPortType_v0p1Client();
            var getESSObservation2 = new getESSObservationRequest();
+            var getESS = new getESSObservation();
+            getESS.deviceInformationRequestMsgField = new DeviceInformationRequest();
+            getESS.deviceInformationRequestMsgField.authenticationField = new Authentication();
+            var auth = getESS.deviceInformationRequestMsgField.authenticationField;
+            auth.useridField = StaticVariables.UserIdField;
+            auth.operatoridField = StaticVariables.OperationIdField;
+            auth.passwordField = StaticVariables.PasswordField;
+            getESSObservation2.getESSObservation = getESS;
           var result=  _weatherPortType_V0P1.getESSObservation(getESSObservation2);
             var serialize = JsonConvert.SerializeObject(result);
             MessageBox.Show(serialize);

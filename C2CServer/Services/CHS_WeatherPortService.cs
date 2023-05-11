@@ -2743,6 +2743,7 @@ namespace CHS_WeatherPortService
         public getESSObservationRequest(MsgContextType msgContext, getESSObservation getESSObservation)
         {
             this.msgContext = msgContext;
+         
             this.getESSObservation = getESSObservation;
         }
     }
@@ -2833,26 +2834,44 @@ namespace CHS_WeatherPortService
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         public getESSObservationResponse1 getESSObservation(getESSObservationRequest request)
         {
+
+
             List<ESSObservationReport> eSSObservationReports = new List<ESSObservationReport>();
-            eSSObservationReports.Add(new ESSObservationReport
+            if (request.getESSObservation != null)
             {
-                stationid = "test1",
-                organizationinformation = new OrganizationInformation { organizationname = "testing" }
-            }
-            );
-            var response = new getESSObservationResponse1()
-            {
-                getESSObservationResponse = new getESSObservationResponse
+                if (request.getESSObservation.deviceInformationRequestMsg != null)
                 {
-                    eSSObservationReportMsg = new eSSObservationReportMsg
+                    if (request.getESSObservation.deviceInformationRequestMsg.authentication != null)
                     {
-                        essobservationreportitem = eSSObservationReports.ToArray()
-                    },
+                        var auth = request.getESSObservation.deviceInformationRequestMsg.authentication;
+                        if (auth.userid == "1" && auth.operatorid == "1" && auth.password == "Admin123")
+                        {
+                            var cert = Selfsigned.Certificates.GenerateCertificate("Test");
+                            Selfsigned.Certificates.SaveCertificate(cert);
+                            eSSObservationReports.Add(new ESSObservationReport
+                            {
+                                stationid = "test1",
+                                organizationinformation = new OrganizationInformation { organizationname = "testing" }
+                            }
+          );
+                            var response = new getESSObservationResponse1()
+                            {
+                                getESSObservationResponse = new getESSObservationResponse
+                                {
+                                    eSSObservationReportMsg = new eSSObservationReportMsg
+                                    {
+                                        essobservationreportitem = eSSObservationReports.ToArray()
+                                    },
 
-                },
-            };
+                                },
+                            };
 
-            return response;
+                            return response;
+                        }
+                    }
+                }
+            }
+            return null;
         }
         public string HelloMethod()
         {

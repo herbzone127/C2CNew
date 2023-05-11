@@ -23,6 +23,7 @@ namespace C2CClient
             //addPlatformServices?.Invoke(services);
             // TODO: Add core services here
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<LoginWindow>();
             /*---------------------------------------------------------------*/
             //ViewModels 
             /*---------------------------------------------------------------*/
@@ -51,7 +52,7 @@ namespace C2CClient
         private void OnStartup(object sender, StartupEventArgs e)
         {
             SetupServices();
-            var mainWindow = ServiceProvider.GetService<MainWindow>();
+            var mainWindow = ServiceProvider.GetService<LoginWindow>();
             mainWindow.Show();
         }
     }
